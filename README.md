@@ -1,4 +1,4 @@
-The official Ghost cross-platform application (Windows, MacOS, iOS, Android, Linux).
+The official Ghost native application (Windows, Mac, Android, iOS, and Linux).
 
 ### Features
 
