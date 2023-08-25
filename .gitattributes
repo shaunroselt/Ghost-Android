@@ -1,2 +1,2 @@
-app/src/main/assets/markdown-converter.js binary
-
+# Auto-detect text files and perform LF normalization
+* text=auto
