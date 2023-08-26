@@ -142,8 +142,9 @@ end;
 
 procedure TAdminSite.Clear;
 begin
-  if Assigned(Self.logo) then
-    Self.logo.Free; // I'm not sure if this is needed or not, but I'm doing it just in case.
+  if Assigned(Self.logo) then    
+    if ((Self.logo_url.Contains('.')) and (Self.logo_url.Length > 1)) then
+      FreeAndNil(Self.logo);
   Self := Default(TAdminSite);
 end;
 

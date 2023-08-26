@@ -38,60 +38,54 @@ uses
 
 type
   TfrmMain = class(TForm, IFrameInterface)
-    Memo1: TMemo;
-    Splitter1: TSplitter;
     MultiView: TMultiView;
     MultiViewScrollBox: TVertScrollBox;
-    layNavAllTools: TLayout;
-    btnAllTools: TRectangle;
-    imgAllTools: TSkSvg;
-    lblAllTools: TLabel;
+    layNavDashboards: TLayout;
+    btnNavDashboards: TRectangle;
+    imgNavDashboards: TSkSvg;
+    lblNavDashboards: TLabel;
     layNavTesting: TLayout;
-    btnTesting: TRectangle;
-    imgTesting: TSkSvg;
-    lblTesting: TLabel;
-    layNavTestingMore: TLayout;
-    layNavTestingMoreExpandCollapse: TLayout;
-    btnTestingMoreExpandCollapse: TRectangle;
-    imgTestingMoreMoreExpandCollapse: TSkSvg;
-    lblTestingMoreExpandCollapse: TLabel;
-    imgConvertersExpandCollapseIcon: TSkSvg;
-    layNavTesting1: TLayout;
-    btnTesting1: TRectangle;
-    lblTesting1: TLabel;
-    layNavTesting3: TLayout;
-    btnTesting3: TRectangle;
-    lblTesting3: TLabel;
-    layNavTesting2: TLayout;
-    btnTesting2: TRectangle;
-    lblTesting2: TLabel;
+    btnNavTesting: TRectangle;
+    imgNavTesting: TSkSvg;
+    lblNavTesting: TLabel;
+    layNavPostsContainer: TLayout;
+    layNavPosts: TLayout;
+    btnNavPosts: TRectangle;
+    imgNavPosts: TSkSvg;
+    lblNavPosts: TLabel;
+    imgNavPostsExpandCollapse: TSkSvg;
+    layNavPostsDrafts: TLayout;
+    btnNavPostsDrafts: TRectangle;
+    lblNavPostsDrafts: TLabel;
+    layNavPostsPublished: TLayout;
+    btnNavPostsPublished: TRectangle;
+    lblNavPostsPublished: TLabel;
+    layNavPostsScheduled: TLayout;
+    btnNavPostsScheduled: TRectangle;
+    lblNavPostsScheduled: TLabel;
     layNavSettings: TLayout;
     Layout9: TLayout;
     Image2: TImage;
     Label9: TLabel;
-    SkSvg1: TSkSvg;
-    Layout10: TLayout;
-    Rectangle6: TRectangle;
-    SkSvg2: TSkSvg;
-    Label12: TLabel;
-    Layout11: TLayout;
-    Rectangle8: TRectangle;
-    SkSvg3: TSkSvg;
-    Label13: TLabel;
-    Layout12: TLayout;
-    Rectangle9: TRectangle;
-    SkSvg4: TSkSvg;
-    Label15: TLabel;
-    Layout13: TLayout;
-    Rectangle10: TRectangle;
-    SkSvg5: TSkSvg;
-    Label16: TLabel;
-    Layout14: TLayout;
-    Rectangle11: TRectangle;
-    SkSvg6: TSkSvg;
-    Label17: TLabel;
-    RoundRect1: TRoundRect;
-    imgSettings: TSkSvg;
+    imgNavPostsAdd: TSkSvg;
+    layNavViewSite: TLayout;
+    btnNavViewSite: TRectangle;
+    imgNavViewSite: TSkSvg;
+    lblNavViewSite: TLabel;
+    layNavMembers: TLayout;
+    btnNavMembers: TRectangle;
+    imgNavMembers: TSkSvg;
+    lblNavMembers: TLabel;
+    layNavTags: TLayout;
+    btnNavTags: TRectangle;
+    imgNavTags: TSkSvg;
+    lblNavTags: TLabel;
+    layNavPages: TLayout;
+    btnNavPages: TRectangle;
+    imgNavPages: TSkSvg;
+    lblNavPages: TLabel;
+    btnNavSettings: TRoundRect;
+    imgNavSettings: TSkSvg;
     RoundRect2: TRoundRect;
     SkSvg7: TSkSvg;
     Image3: TImage;
@@ -107,9 +101,7 @@ type
     edtSearchAllTools: TEdit;
     SearchEditButton1: TSearchEditButton;
     layTesting: TLayout;
-    Label41: TLabel;
     memTesting: TMemo;
-    Button14: TButton;
     laySettings: TScrollBox;
     layFontFamily: TRectangle;
     cbFontFamily: TComboBox;
@@ -148,15 +140,28 @@ type
     layMemoChangeLog: TRectangle;
     memChangeLog: TMemo;
     lblChangeLog: TLabel;
-    RoundRect3: TRoundRect;
-    Label24: TLabel;
+    layNavMembersCount: TRoundRect;
+    lblNavMembersCount: TLabel;
     StyleBook1: TStyleBook;
+    layNavExplore: TLayout;
+    btnNavExplore: TRectangle;
+    imgNavExplore: TSkSvg;
+    lblNavExplore: TLabel;
+    Layout2: TLayout;
+    Splitter1: TSplitter;
     procedure btnNavItemMouseEnter(Sender: TObject);
     procedure btnNavItemMouseLeave(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure RoundRect1Click(Sender: TObject);
-    procedure btnAllToolsClick(Sender: TObject);
-    procedure FormDestroy(Sender: TObject);
+    procedure btnNavSettingsClick(Sender: TObject);
+    procedure btnNavDashboardsClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btnNavTestingClick(Sender: TObject);
+    procedure btnNavViewSiteClick(Sender: TObject);
+    procedure btnNavExploreClick(Sender: TObject);
+    procedure btnNavPostsClick(Sender: TObject);
+    procedure btnNavPagesClick(Sender: TObject);
+    procedure btnNavTagsClick(Sender: TObject);
+    procedure btnNavMembersClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -172,7 +177,7 @@ implementation
 
 {$R *.fmx}
 
-procedure TfrmMain.RoundRect1Click(Sender: TObject);
+procedure TfrmMain.btnNavSettingsClick(Sender: TObject);
 begin
   ShowFrame('Settings', True);
 end;
@@ -198,15 +203,19 @@ begin
       var NilEvent := TNotifyEvent(nil);
       if (TMethod(OnResizeEvent) <> TMethod(NilEvent)) then
         TFrame(cmpFrameLayoutName).OnResize(nil); // Call onResize Event if it's a Frame
-
-      MultiView.Visible := bShowNavigation;
     end;
+    MultiView.Visible := bShowNavigation;
   end else ShowMessage('This frame is not available');
 end;
 
-procedure TfrmMain.btnAllToolsClick(Sender: TObject);
+procedure TfrmMain.btnNavDashboardsClick(Sender: TObject);
 begin
   ShowFrame('Dashboards', True);
+end;
+
+procedure TfrmMain.btnNavExploreClick(Sender: TObject);
+begin
+  ShowFrame('Explore', True);
 end;
 
 procedure TfrmMain.btnNavItemMouseEnter(Sender: TObject);
@@ -218,6 +227,41 @@ end;
 procedure TfrmMain.btnNavItemMouseLeave(Sender: TObject);
 begin
   TShape(Sender).Fill.Kind := TBrushKind.None;
+end;
+
+procedure TfrmMain.btnNavMembersClick(Sender: TObject);
+begin
+  ShowFrame('Members', True);
+end;
+
+procedure TfrmMain.btnNavPagesClick(Sender: TObject);
+begin
+  ShowFrame('Pages', True);
+end;
+
+procedure TfrmMain.btnNavPostsClick(Sender: TObject);
+begin
+  ShowFrame('Posts', True);
+end;
+
+procedure TfrmMain.btnNavTagsClick(Sender: TObject);
+begin
+  ShowFrame('Tags', True);
+end;
+
+procedure TfrmMain.btnNavTestingClick(Sender: TObject);
+begin
+  ShowFrame('Testing', True);
+end;
+
+procedure TfrmMain.btnNavViewSiteClick(Sender: TObject);
+begin
+  ShowFrame('ViewSite', True);
+end;
+
+procedure TfrmMain.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  dmAPI.AdminSite.Clear;
 end;
 
 procedure TfrmMain.FormCreate(Sender: TObject);
@@ -232,21 +276,20 @@ procedure TfrmMain.FormCreate(Sender: TObject);
       aFrameController.SetFrameInterface(self);
   end;
 begin
+  layNavTesting.Visible := False;
+  {$IFDEF DEBUG}
+    layNavTesting.Visible := True;
+  {$ENDIF}
+
   CreateFrame(TFrame_WelcomeBack.Create(Self),'WelcomeBack');
   CreateFrame(TFrame_SignIn.Create(Self),'SignIn');
 
   ShowFrame('WelcomeBack', False);
-
-end;
-
-procedure TfrmMain.FormDestroy(Sender: TObject);
-begin
-  dmAPI.AdminSite.Clear;
 end;
 
 procedure TfrmMain.LogInfo(sString: String);
 begin
-  Memo1.Lines.Add(sString);
+  memTesting.Lines.Add(sString);
 end;
 
 end.

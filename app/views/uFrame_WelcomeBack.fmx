@@ -2,7 +2,7 @@ object Frame_WelcomeBack: TFrame_WelcomeBack
   Size.Width = 916.000000000000000000
   Size.Height = 728.000000000000000000
   Size.PlatformDefault = False
-  object Layout2: TLayout
+  object layWelcomeBack: TLayout
     Align = Center
     Size.Width = 533.000000000000000000
     Size.Height = 432.000000000000000000
@@ -47,7 +47,7 @@ object Frame_WelcomeBack: TFrame_WelcomeBack
       Size.Height = 69.000015258789060000
       Size.PlatformDefault = False
       TabOrder = 5
-      object Label4: TLabel
+      object lblSiteAddress: TLabel
         Align = Top
         AutoSize = True
         StyledSettings = [FontColor]
@@ -57,9 +57,9 @@ object Frame_WelcomeBack: TFrame_WelcomeBack
         TextSettings.Font.Family = 'Open Sans'
         TextSettings.Font.Size = 14.000000000000000000
         Text = 'Site address'
-        TabOrder = 1
+        TabOrder = 0
       end
-      object Rectangle3: TRectangle
+      object laySiteAddress: TRectangle
         Align = Top
         Cursor = crHandPoint
         Fill.Color = claWhite
@@ -87,6 +87,8 @@ object Frame_WelcomeBack: TFrame_WelcomeBack
           Size.PlatformDefault = False
           TextPrompt = 'site.ghost.io or myghostsite.com'
           StyledSettings = [Style, FontColor]
+          OnCanFocus = EditOnFocus
+          OnExit = EditOnFocusExit
         end
       end
     end
@@ -133,7 +135,7 @@ object Frame_WelcomeBack: TFrame_WelcomeBack
       XRadius = 8.000000000000000000
       YRadius = 8.000000000000000000
       OnClick = btnContinueClick
-      object Label7: TLabel
+      object lblButtonContinue: TLabel
         Align = Client
         AutoSize = True
         StyledSettings = []
@@ -152,20 +154,20 @@ object Frame_WelcomeBack: TFrame_WelcomeBack
         TabOrder = 3
       end
     end
-    object Layout3: TLayout
+    object layLogo: TLayout
       Align = Top
       Size.Width = 533.000000000000000000
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
-      object Layout4: TLayout
+      object layLogoGhost: TLayout
         Align = HorzCenter
         Position.X = 194.000000000000000000
         Size.Width = 144.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
-        object Image1: TImage
+        object imgLogoGhost: TImage
           MultiResBitmap.Height = 800
           MultiResBitmap.Width = 800
           MultiResBitmap = <
@@ -4546,7 +4548,7 @@ object Frame_WelcomeBack: TFrame_WelcomeBack
             end>
           Align = Left
         end
-        object Label1: TLabel
+        object lblLogoGhost: TLabel
           Align = Client
           StyledSettings = [FontColor]
           Margins.Left = 5.000000000000000000

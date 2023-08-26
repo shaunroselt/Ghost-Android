@@ -24,35 +24,14 @@ object frmMain: TfrmMain
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
-  OnDestroy = FormDestroy
+  OnClose = FormClose
   DesignerMasterStyle = 0
-  object Memo1: TMemo
-    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
-    DataDetectorTypes = []
-    Align = MostRight
-    Position.X = 812.000000000000000000
-    Size.Width = 436.000000000000000000
+  object LayoutContainer: TLayout
+    Align = Client
+    Size.Width = 848.000000000000000000
     Size.Height = 764.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 3
-    Viewport.Width = 432.000000000000000000
-    Viewport.Height = 760.000000000000000000
-  end
-  object Splitter1: TSplitter
-    Align = Right
-    Cursor = crHSplit
-    MinSize = 20.000000000000000000
-    Position.X = 811.000000000000000000
-    Size.Width = 1.000000000000000000
-    Size.Height = 764.000000000000000000
-    Size.PlatformDefault = False
-  end
-  object LayoutContainer: TLayout
-    Align = Client
-    Size.Width = 411.000000000000000000
-    Size.Height = 764.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 4
     object layDashboards: TScrollBox
       Align = Client
       Padding.Left = 10.000000000000000000
@@ -63,6 +42,7 @@ object frmMain: TfrmMain
       Size.Height = 764.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
+      Visible = False
       Viewport.Width = 395.000000000000000000
       Viewport.Height = 764.000000000000000000
       object layAllToolsGrid: TFlowLayout
@@ -190,39 +170,37 @@ object frmMain: TfrmMain
     end
     object layTesting: TLayout
       Align = Client
-      Size.Width = 847.000000000000000000
-      Size.Height = 738.000000000000000000
+      Size.Width = 848.000000000000000000
+      Size.Height = 764.000000000000000000
       Size.PlatformDefault = False
-      Visible = False
       TabOrder = 0
-      object Label41: TLabel
-        Align = Top
-        Size.Width = 847.000000000000000000
-        Size.Height = 95.000000000000000000
-        Size.PlatformDefault = False
-        TextSettings.HorzAlign = Center
-        Text = 'Testing Stuff'
-        TabOrder = 0
-      end
       object memTesting: TMemo
         Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
         DataDetectorTypes = []
+        Align = MostBottom
+        Position.Y = 448.000000000000000000
+        Size.Width = 848.000000000000000000
+        Size.Height = 316.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Viewport.Width = 844.000000000000000000
+        Viewport.Height = 312.000000000000000000
+      end
+      object Layout2: TLayout
         Align = Client
-        Size.Width = 847.000000000000000000
-        Size.Height = 621.000000000000000000
+        Size.Width = 848.000000000000000000
+        Size.Height = 444.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
-        Viewport.Width = 843.000000000000000000
-        Viewport.Height = 617.000000000000000000
       end
-      object Button14: TButton
-        Align = Top
-        Position.Y = 95.000000000000000000
-        Size.Width = 847.000000000000000000
-        Size.Height = 22.000000000000000000
+      object Splitter1: TSplitter
+        Align = Bottom
+        Cursor = crVSplit
+        MinSize = 20.000000000000000000
+        Position.Y = 444.000000000000000000
+        Size.Width = 848.000000000000000000
+        Size.Height = 4.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 2
-        Text = 'Button14'
       end
     end
     object laySettings: TScrollBox
@@ -796,39 +774,39 @@ object frmMain: TfrmMain
       TabOrder = 0
       Viewport.Width = 400.000000000000000000
       Viewport.Height = 633.000000000000000000
-      object layNavAllTools: TLayout
+      object layNavDashboards: TLayout
         Align = Top
-        Position.Y = 67.000000000000000000
+        Position.Y = 147.000000000000000000
         Size.Width = 400.000000000000000000
         Size.Height = 40.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 8
-        object btnAllTools: TRectangle
+        object btnNavDashboards: TRectangle
           Align = Client
           Cursor = crHandPoint
           Fill.Kind = None
-          Margins.Left = 5.000000000000000000
-          Margins.Top = 5.000000000000000000
-          Margins.Right = 5.000000000000000000
-          Margins.Bottom = 5.000000000000000000
+          Padding.Left = 5.000000000000000000
+          Padding.Top = 5.000000000000000000
+          Padding.Right = 5.000000000000000000
+          Padding.Bottom = 5.000000000000000000
           Sides = []
-          Size.Width = 390.000000000000000000
-          Size.Height = 30.000000000000000000
+          Size.Width = 400.000000000000000000
+          Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
           Stroke.Kind = None
           XRadius = 8.000000000000000000
           YRadius = 8.000000000000000000
-          OnClick = btnAllToolsClick
+          OnClick = btnNavDashboardsClick
           OnMouseEnter = btnNavItemMouseEnter
           OnMouseLeave = btnNavItemMouseLeave
-          object imgAllTools: TSkSvg
+          object imgNavDashboards: TSkSvg
             Align = Left
             Margins.Left = 34.000000000000000000
             Margins.Top = 5.000000000000000000
             Margins.Right = 8.000000000000000000
             Margins.Bottom = 5.000000000000000000
-            Position.X = 34.000000000000000000
-            Position.Y = 5.000000000000000000
+            Position.X = 39.000000000000000000
+            Position.Y = 10.000000000000000000
             Size.Width = 20.000000000000000000
             Size.Height = 20.000000000000000000
             Size.PlatformDefault = False
@@ -843,7 +821,7 @@ object frmMain: TfrmMain
               '.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.' +
               '5z"/>'#13#10'</svg>'
           end
-          object lblAllTools: TLabel
+          object lblNavDashboards: TLabel
             Align = Client
             StyledSettings = []
             Margins.Right = 5.000000000000000000
@@ -859,37 +837,39 @@ object frmMain: TfrmMain
         end
       end
       object layNavTesting: TLayout
-        Align = Top
-        Position.Y = 147.000000000000000000
+        Align = MostTop
+        Margins.Bottom = 40.000000000000000000
+        Position.Y = 67.000000000000000000
         Size.Width = 400.000000000000000000
         Size.Height = 40.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 4
-        object btnTesting: TRectangle
+        object btnNavTesting: TRectangle
           Align = Client
           Cursor = crHandPoint
           Fill.Kind = None
-          Margins.Left = 5.000000000000000000
-          Margins.Top = 5.000000000000000000
-          Margins.Right = 5.000000000000000000
-          Margins.Bottom = 5.000000000000000000
+          Padding.Left = 5.000000000000000000
+          Padding.Top = 5.000000000000000000
+          Padding.Right = 5.000000000000000000
+          Padding.Bottom = 5.000000000000000000
           Sides = []
-          Size.Width = 390.000000000000000000
-          Size.Height = 30.000000000000000000
+          Size.Width = 400.000000000000000000
+          Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
           Stroke.Kind = None
           XRadius = 8.000000000000000000
           YRadius = 8.000000000000000000
+          OnClick = btnNavTestingClick
           OnMouseEnter = btnNavItemMouseEnter
           OnMouseLeave = btnNavItemMouseLeave
-          object imgTesting: TSkSvg
+          object imgNavTesting: TSkSvg
             Align = Left
             Margins.Left = 34.000000000000000000
             Margins.Top = 5.000000000000000000
             Margins.Right = 8.000000000000000000
             Margins.Bottom = 5.000000000000000000
-            Position.X = 34.000000000000000000
-            Position.Y = 5.000000000000000000
+            Position.X = 39.000000000000000000
+            Position.Y = 10.000000000000000000
             Size.Width = 20.000000000000000000
             Size.Height = 20.000000000000000000
             Size.PlatformDefault = False
@@ -904,7 +884,7 @@ object frmMain: TfrmMain
               'a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .' +
               '314-.464L7.443.184z"/>'#13#10'</svg>'
           end
-          object lblTesting: TLabel
+          object lblNavTesting: TLabel
             Align = Client
             StyledSettings = []
             Margins.Right = 5.000000000000000000
@@ -914,50 +894,51 @@ object frmMain: TfrmMain
             TextSettings.Font.Family = 'Open Sans'
             TextSettings.Font.Size = 16.000000000000000000
             TextSettings.FontColor = xFF40474F
-            Text = 'Explore'
+            Text = 'Testing Stuff '#55357#56443#55357#56443#55357#56443
             TabOrder = 1
           end
         end
       end
-      object layNavTestingMore: TLayout
+      object layNavPostsContainer: TLayout
         Align = Top
         Margins.Top = 40.000000000000000000
-        Position.Y = 227.000000000000000000
+        Position.Y = 307.000000000000000000
         Size.Width = 400.000000000000000000
         Size.Height = 190.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
-        object layNavTestingMoreExpandCollapse: TLayout
+        object layNavPosts: TLayout
           Align = Top
           Size.Width = 400.000000000000000000
           Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 6
-          object btnTestingMoreExpandCollapse: TRectangle
+          object btnNavPosts: TRectangle
             Align = Client
             Cursor = crHandPoint
             Fill.Kind = None
-            Margins.Left = 5.000000000000000000
-            Margins.Top = 5.000000000000000000
-            Margins.Right = 5.000000000000000000
-            Margins.Bottom = 5.000000000000000000
+            Padding.Left = 5.000000000000000000
+            Padding.Top = 5.000000000000000000
+            Padding.Right = 5.000000000000000000
+            Padding.Bottom = 5.000000000000000000
             Sides = []
-            Size.Width = 390.000000000000000000
-            Size.Height = 30.000000000000000000
+            Size.Width = 400.000000000000000000
+            Size.Height = 40.000000000000000000
             Size.PlatformDefault = False
             Stroke.Kind = None
             XRadius = 8.000000000000000000
             YRadius = 8.000000000000000000
+            OnClick = btnNavPostsClick
             OnMouseEnter = btnNavItemMouseEnter
             OnMouseLeave = btnNavItemMouseLeave
-            object imgTestingMoreMoreExpandCollapse: TSkSvg
+            object imgNavPosts: TSkSvg
               Align = Left
               Margins.Left = 5.000000000000000000
               Margins.Top = 5.000000000000000000
               Margins.Right = 8.000000000000000000
               Margins.Bottom = 5.000000000000000000
-              Position.X = 34.000000000000000000
-              Position.Y = 5.000000000000000000
+              Position.X = 39.000000000000000000
+              Position.Y = 10.000000000000000000
               Size.Width = 20.000000000000000000
               Size.Height = 20.000000000000000000
               Size.PlatformDefault = False
@@ -972,7 +953,7 @@ object frmMain: TfrmMain
                 '0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>'#13 +
                 #10'</svg>'
             end
-            object lblTestingMoreExpandCollapse: TLabel
+            object lblNavPosts: TLabel
               Align = Client
               StyledSettings = []
               Size.Width = 269.000000000000000000
@@ -984,14 +965,16 @@ object frmMain: TfrmMain
               Text = 'Posts'
               TabOrder = 1
             end
-            object imgConvertersExpandCollapseIcon: TSkSvg
+            object imgNavPostsExpandCollapse: TSkSvg
               Align = MostLeft
+              Cursor = crHandPoint
+              HitTest = True
               Margins.Left = 5.000000000000000000
               Margins.Top = 8.000000000000000000
               Margins.Right = 5.000000000000000000
               Margins.Bottom = 8.000000000000000000
-              Position.X = 5.000000000000000000
-              Position.Y = 8.000000000000000000
+              Position.X = 10.000000000000000000
+              Position.Y = 13.000000000000000000
               Size.Width = 19.000000000000000000
               Size.Height = 14.000000000000000000
               Size.PlatformDefault = False
@@ -1003,14 +986,14 @@ object frmMain: TfrmMain
                 '0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 ' +
                 '0l-6-6a.5.5 0 0 1 0-.708z"/>'#13#10'</svg>'
             end
-            object SkSvg1: TSkSvg
+            object imgNavPostsAdd: TSkSvg
               Align = MostRight
               Margins.Left = 5.000000000000000000
               Margins.Top = 5.000000000000000000
               Margins.Right = 34.000000000000000000
               Margins.Bottom = 5.000000000000000000
-              Position.X = 336.000000000000000000
-              Position.Y = 5.000000000000000000
+              Position.X = 341.000000000000000000
+              Position.Y = 10.000000000000000000
               Size.Width = 20.000000000000000000
               Size.Height = 20.000000000000000000
               Size.PlatformDefault = False
@@ -1024,31 +1007,32 @@ object frmMain: TfrmMain
             end
           end
         end
-        object layNavTesting1: TLayout
+        object layNavPostsDrafts: TLayout
           Align = Top
           Position.Y = 40.000000000000000000
           Size.Width = 400.000000000000000000
           Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 11
-          object btnTesting1: TRectangle
+          object btnNavPostsDrafts: TRectangle
             Align = Client
             Cursor = crHandPoint
             Fill.Kind = None
-            Margins.Left = 5.000000000000000000
-            Margins.Top = 5.000000000000000000
-            Margins.Right = 5.000000000000000000
-            Margins.Bottom = 5.000000000000000000
+            Padding.Left = 5.000000000000000000
+            Padding.Top = 5.000000000000000000
+            Padding.Right = 5.000000000000000000
+            Padding.Bottom = 5.000000000000000000
             Sides = []
-            Size.Width = 390.000000000000000000
-            Size.Height = 30.000000000000000000
+            Size.Width = 400.000000000000000000
+            Size.Height = 40.000000000000000000
             Size.PlatformDefault = False
             Stroke.Kind = None
             XRadius = 8.000000000000000000
             YRadius = 8.000000000000000000
+            OnClick = btnNavPostsClick
             OnMouseEnter = btnNavItemMouseEnter
             OnMouseLeave = btnNavItemMouseLeave
-            object lblTesting1: TLabel
+            object lblNavPostsDrafts: TLabel
               Align = Client
               StyledSettings = []
               Margins.Left = 62.000000000000000000
@@ -1064,31 +1048,32 @@ object frmMain: TfrmMain
             end
           end
         end
-        object layNavTesting3: TLayout
+        object layNavPostsPublished: TLayout
           Align = Top
           Position.Y = 120.000000000000000000
           Size.Width = 400.000000000000000000
           Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 10
-          object btnTesting3: TRectangle
+          object btnNavPostsPublished: TRectangle
             Align = Client
             Cursor = crHandPoint
             Fill.Kind = None
-            Margins.Left = 5.000000000000000000
-            Margins.Top = 5.000000000000000000
-            Margins.Right = 5.000000000000000000
-            Margins.Bottom = 5.000000000000000000
+            Padding.Left = 5.000000000000000000
+            Padding.Top = 5.000000000000000000
+            Padding.Right = 5.000000000000000000
+            Padding.Bottom = 5.000000000000000000
             Sides = []
-            Size.Width = 390.000000000000000000
-            Size.Height = 30.000000000000000000
+            Size.Width = 400.000000000000000000
+            Size.Height = 40.000000000000000000
             Size.PlatformDefault = False
             Stroke.Kind = None
             XRadius = 8.000000000000000000
             YRadius = 8.000000000000000000
+            OnClick = btnNavPostsClick
             OnMouseEnter = btnNavItemMouseEnter
             OnMouseLeave = btnNavItemMouseLeave
-            object lblTesting3: TLabel
+            object lblNavPostsPublished: TLabel
               Align = Client
               StyledSettings = []
               Margins.Left = 62.000000000000000000
@@ -1104,31 +1089,32 @@ object frmMain: TfrmMain
             end
           end
         end
-        object layNavTesting2: TLayout
+        object layNavPostsScheduled: TLayout
           Align = Top
           Position.Y = 80.000000000000000000
           Size.Width = 400.000000000000000000
           Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 9
-          object btnTesting2: TRectangle
+          object btnNavPostsScheduled: TRectangle
             Align = Client
             Cursor = crHandPoint
             Fill.Kind = None
-            Margins.Left = 5.000000000000000000
-            Margins.Top = 5.000000000000000000
-            Margins.Right = 5.000000000000000000
-            Margins.Bottom = 5.000000000000000000
+            Padding.Left = 5.000000000000000000
+            Padding.Top = 5.000000000000000000
+            Padding.Right = 5.000000000000000000
+            Padding.Bottom = 5.000000000000000000
             Sides = []
-            Size.Width = 390.000000000000000000
-            Size.Height = 30.000000000000000000
+            Size.Width = 400.000000000000000000
+            Size.Height = 40.000000000000000000
             Size.PlatformDefault = False
             Stroke.Kind = None
             XRadius = 8.000000000000000000
             YRadius = 8.000000000000000000
+            OnClick = btnNavPostsClick
             OnMouseEnter = btnNavItemMouseEnter
             OnMouseLeave = btnNavItemMouseLeave
-            object lblTesting2: TLabel
+            object lblNavPostsScheduled: TLabel
               Align = Client
               StyledSettings = []
               Margins.Left = 62.000000000000000000
@@ -5552,38 +5538,39 @@ object frmMain: TfrmMain
           TabOrder = 1
         end
       end
-      object Layout10: TLayout
+      object layNavViewSite: TLayout
         Align = Top
-        Position.Y = 107.000000000000000000
+        Position.Y = 187.000000000000000000
         Size.Width = 400.000000000000000000
         Size.Height = 40.000000000000000000
         Size.PlatformDefault = False
-        TabOrder = 2
-        object Rectangle6: TRectangle
+        TabOrder = 3
+        object btnNavViewSite: TRectangle
           Align = Client
           Cursor = crHandPoint
           Fill.Kind = None
-          Margins.Left = 5.000000000000000000
-          Margins.Top = 5.000000000000000000
-          Margins.Right = 5.000000000000000000
-          Margins.Bottom = 5.000000000000000000
+          Padding.Left = 5.000000000000000000
+          Padding.Top = 5.000000000000000000
+          Padding.Right = 5.000000000000000000
+          Padding.Bottom = 5.000000000000000000
           Sides = []
-          Size.Width = 390.000000000000000000
-          Size.Height = 30.000000000000000000
+          Size.Width = 400.000000000000000000
+          Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
           Stroke.Kind = None
           XRadius = 8.000000000000000000
           YRadius = 8.000000000000000000
+          OnClick = btnNavViewSiteClick
           OnMouseEnter = btnNavItemMouseEnter
           OnMouseLeave = btnNavItemMouseLeave
-          object SkSvg2: TSkSvg
+          object imgNavViewSite: TSkSvg
             Align = Left
             Margins.Left = 34.000000000000000000
             Margins.Top = 5.000000000000000000
             Margins.Right = 8.000000000000000000
             Margins.Bottom = 5.000000000000000000
-            Position.X = 34.000000000000000000
-            Position.Y = 5.000000000000000000
+            Position.X = 39.000000000000000000
+            Position.Y = 10.000000000000000000
             Size.Width = 20.000000000000000000
             Size.Height = 20.000000000000000000
             Size.PlatformDefault = False
@@ -5598,7 +5585,7 @@ object frmMain: TfrmMain
               'a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .' +
               '314-.464L7.443.184z"/>'#13#10'</svg>'
           end
-          object Label12: TLabel
+          object lblNavViewSite: TLabel
             Align = Client
             StyledSettings = []
             Margins.Right = 5.000000000000000000
@@ -5613,98 +5600,39 @@ object frmMain: TfrmMain
           end
         end
       end
-      object Layout11: TLayout
+      object layNavMembers: TLayout
         Align = Top
-        Position.Y = 76.000000000000000000
-        Size.Width = 400.000000000000000000
-        Size.Height = 40.000000000000000000
-        Size.PlatformDefault = False
-        Visible = False
-        TabOrder = 3
-        object Rectangle8: TRectangle
-          Align = Client
-          Cursor = crHandPoint
-          Fill.Kind = None
-          Margins.Left = 5.000000000000000000
-          Margins.Top = 5.000000000000000000
-          Margins.Right = 5.000000000000000000
-          Margins.Bottom = 5.000000000000000000
-          Sides = []
-          Size.Width = 390.000000000000000000
-          Size.Height = 30.000000000000000000
-          Size.PlatformDefault = False
-          Stroke.Kind = None
-          XRadius = 8.000000000000000000
-          YRadius = 8.000000000000000000
-          object SkSvg3: TSkSvg
-            Align = Left
-            Margins.Left = 34.000000000000000000
-            Margins.Top = 8.000000000000000000
-            Margins.Right = 8.000000000000000000
-            Margins.Bottom = 8.000000000000000000
-            Position.X = 34.000000000000000000
-            Position.Y = 8.000000000000000000
-            Size.Width = 24.000000000000000000
-            Size.Height = 14.000000000000000000
-            Size.PlatformDefault = False
-            Svg.OverrideColor = claBlack
-            Svg.Source = 
-              '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" f' +
-              'ill="currentColor" class="bi bi-box" viewBox="0 0 16 16">'#13#10'  <pa' +
-              'th d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5 8 5.961 14.154 3.' +
-              '5 8.186 1.113zM15 4.239l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V' +
-              '6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.1' +
-              '29 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874' +
-              'a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .' +
-              '314-.464L7.443.184z"/>'#13#10'</svg>'
-          end
-          object Label13: TLabel
-            Align = Client
-            StyledSettings = [Family, FontColor]
-            Margins.Top = 5.000000000000000000
-            Margins.Right = 5.000000000000000000
-            Margins.Bottom = 5.000000000000000000
-            Size.Width = 319.000000000000000000
-            Size.Height = 20.000000000000000000
-            Size.PlatformDefault = False
-            TextSettings.Font.Size = 20.000000000000000000
-            Text = 'Testing Stuff '#55357#56833#55357#56833#55357#56833
-            TabOrder = 1
-          end
-        end
-      end
-      object Layout12: TLayout
-        Align = Top
-        Position.Y = 497.000000000000000000
+        Position.Y = 577.000000000000000000
         Size.Width = 400.000000000000000000
         Size.Height = 40.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 7
-        object Rectangle9: TRectangle
+        object btnNavMembers: TRectangle
           Align = Client
           Cursor = crHandPoint
           Fill.Kind = None
-          Margins.Left = 5.000000000000000000
-          Margins.Top = 5.000000000000000000
-          Margins.Right = 5.000000000000000000
-          Margins.Bottom = 5.000000000000000000
+          Padding.Left = 5.000000000000000000
+          Padding.Top = 5.000000000000000000
+          Padding.Right = 5.000000000000000000
+          Padding.Bottom = 5.000000000000000000
           Sides = []
-          Size.Width = 390.000000000000000000
-          Size.Height = 30.000000000000000000
+          Size.Width = 400.000000000000000000
+          Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
           Stroke.Kind = None
           XRadius = 8.000000000000000000
           YRadius = 8.000000000000000000
+          OnClick = btnNavMembersClick
           OnMouseEnter = btnNavItemMouseEnter
           OnMouseLeave = btnNavItemMouseLeave
-          object SkSvg4: TSkSvg
+          object imgNavMembers: TSkSvg
             Align = Left
             Margins.Left = 34.000000000000000000
             Margins.Top = 5.000000000000000000
             Margins.Right = 8.000000000000000000
             Margins.Bottom = 5.000000000000000000
-            Position.X = 34.000000000000000000
-            Position.Y = 5.000000000000000000
+            Position.X = 39.000000000000000000
+            Position.Y = 10.000000000000000000
             Size.Width = 20.000000000000000000
             Size.Height = 20.000000000000000000
             Size.PlatformDefault = False
@@ -5719,7 +5647,7 @@ object frmMain: TfrmMain
               'a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .' +
               '314-.464L7.443.184z"/>'#13#10'</svg>'
           end
-          object Label15: TLabel
+          object lblNavMembers: TLabel
             Align = Client
             StyledSettings = []
             Margins.Right = 5.000000000000000000
@@ -5732,19 +5660,19 @@ object frmMain: TfrmMain
             Text = 'Members'
             TabOrder = 1
           end
-          object RoundRect3: TRoundRect
+          object layNavMembersCount: TRoundRect
             Align = MostRight
             Fill.Color = xFFF3F4F6
             Margins.Top = 5.000000000000000000
             Margins.Right = 34.000000000000000000
             Margins.Bottom = 5.000000000000000000
-            Position.X = 336.000000000000000000
-            Position.Y = 5.000000000000000000
+            Position.X = 341.000000000000000000
+            Position.Y = 10.000000000000000000
             Size.Width = 20.000000000000000000
             Size.Height = 20.000000000000000000
             Size.PlatformDefault = False
             Stroke.Kind = None
-            object Label24: TLabel
+            object lblNavMembersCount: TLabel
               Align = Client
               StyledSettings = []
               Size.Width = 20.000000000000000000
@@ -5760,38 +5688,39 @@ object frmMain: TfrmMain
           end
         end
       end
-      object Layout13: TLayout
+      object layNavTags: TLayout
         Align = Top
-        Position.Y = 457.000000000000000000
+        Position.Y = 537.000000000000000000
         Size.Width = 400.000000000000000000
         Size.Height = 40.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 6
-        object Rectangle10: TRectangle
+        object btnNavTags: TRectangle
           Align = Client
           Cursor = crHandPoint
           Fill.Kind = None
-          Margins.Left = 5.000000000000000000
-          Margins.Top = 5.000000000000000000
-          Margins.Right = 5.000000000000000000
-          Margins.Bottom = 5.000000000000000000
+          Padding.Left = 5.000000000000000000
+          Padding.Top = 5.000000000000000000
+          Padding.Right = 5.000000000000000000
+          Padding.Bottom = 5.000000000000000000
           Sides = []
-          Size.Width = 390.000000000000000000
-          Size.Height = 30.000000000000000000
+          Size.Width = 400.000000000000000000
+          Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
           Stroke.Kind = None
           XRadius = 8.000000000000000000
           YRadius = 8.000000000000000000
+          OnClick = btnNavTagsClick
           OnMouseEnter = btnNavItemMouseEnter
           OnMouseLeave = btnNavItemMouseLeave
-          object SkSvg5: TSkSvg
+          object imgNavTags: TSkSvg
             Align = Left
             Margins.Left = 34.000000000000000000
             Margins.Top = 5.000000000000000000
             Margins.Right = 8.000000000000000000
             Margins.Bottom = 5.000000000000000000
-            Position.X = 34.000000000000000000
-            Position.Y = 5.000000000000000000
+            Position.X = 39.000000000000000000
+            Position.Y = 10.000000000000000000
             Size.Width = 20.000000000000000000
             Size.Height = 20.000000000000000000
             Size.PlatformDefault = False
@@ -5806,7 +5735,7 @@ object frmMain: TfrmMain
               'a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .' +
               '314-.464L7.443.184z"/>'#13#10'</svg>'
           end
-          object Label16: TLabel
+          object lblNavTags: TLabel
             Align = Client
             StyledSettings = []
             Margins.Right = 5.000000000000000000
@@ -5821,38 +5750,39 @@ object frmMain: TfrmMain
           end
         end
       end
-      object Layout14: TLayout
+      object layNavPages: TLayout
         Align = Top
-        Position.Y = 417.000000000000000000
+        Position.Y = 497.000000000000000000
         Size.Width = 400.000000000000000000
         Size.Height = 40.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 5
-        object Rectangle11: TRectangle
+        object btnNavPages: TRectangle
           Align = Client
           Cursor = crHandPoint
           Fill.Kind = None
-          Margins.Left = 5.000000000000000000
-          Margins.Top = 5.000000000000000000
-          Margins.Right = 5.000000000000000000
-          Margins.Bottom = 5.000000000000000000
+          Padding.Left = 5.000000000000000000
+          Padding.Top = 5.000000000000000000
+          Padding.Right = 5.000000000000000000
+          Padding.Bottom = 5.000000000000000000
           Sides = []
-          Size.Width = 390.000000000000000000
-          Size.Height = 30.000000000000000000
+          Size.Width = 400.000000000000000000
+          Size.Height = 40.000000000000000000
           Size.PlatformDefault = False
           Stroke.Kind = None
           XRadius = 8.000000000000000000
           YRadius = 8.000000000000000000
+          OnClick = btnNavPagesClick
           OnMouseEnter = btnNavItemMouseEnter
           OnMouseLeave = btnNavItemMouseLeave
-          object SkSvg6: TSkSvg
+          object imgNavPages: TSkSvg
             Align = Left
             Margins.Left = 34.000000000000000000
             Margins.Top = 5.000000000000000000
             Margins.Right = 8.000000000000000000
             Margins.Bottom = 5.000000000000000000
-            Position.X = 34.000000000000000000
-            Position.Y = 5.000000000000000000
+            Position.X = 39.000000000000000000
+            Position.Y = 10.000000000000000000
             Size.Width = 20.000000000000000000
             Size.Height = 20.000000000000000000
             Size.PlatformDefault = False
@@ -5867,7 +5797,7 @@ object frmMain: TfrmMain
               'a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .' +
               '314-.464L7.443.184z"/>'#13#10'</svg>'
           end
-          object Label17: TLabel
+          object lblNavPages: TLabel
             Align = Client
             StyledSettings = []
             Margins.Right = 5.000000000000000000
@@ -5882,6 +5812,68 @@ object frmMain: TfrmMain
           end
         end
       end
+      object layNavExplore: TLayout
+        Align = Top
+        Position.Y = 227.000000000000000000
+        Size.Width = 400.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        object btnNavExplore: TRectangle
+          Align = Client
+          Cursor = crHandPoint
+          Fill.Kind = None
+          Padding.Left = 5.000000000000000000
+          Padding.Top = 5.000000000000000000
+          Padding.Right = 5.000000000000000000
+          Padding.Bottom = 5.000000000000000000
+          Sides = []
+          Size.Width = 400.000000000000000000
+          Size.Height = 40.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Kind = None
+          XRadius = 8.000000000000000000
+          YRadius = 8.000000000000000000
+          OnClick = btnNavExploreClick
+          OnMouseEnter = btnNavItemMouseEnter
+          OnMouseLeave = btnNavItemMouseLeave
+          object imgNavExplore: TSkSvg
+            Align = Left
+            Margins.Left = 34.000000000000000000
+            Margins.Top = 5.000000000000000000
+            Margins.Right = 8.000000000000000000
+            Margins.Bottom = 5.000000000000000000
+            Position.X = 39.000000000000000000
+            Position.Y = 10.000000000000000000
+            Size.Width = 20.000000000000000000
+            Size.Height = 20.000000000000000000
+            Size.PlatformDefault = False
+            Svg.OverrideColor = xFF40474F
+            Svg.Source = 
+              '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" f' +
+              'ill="currentColor" class="bi bi-box" viewBox="0 0 16 16">'#13#10'  <pa' +
+              'th d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5 8 5.961 14.154 3.' +
+              '5 8.186 1.113zM15 4.239l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V' +
+              '6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.1' +
+              '29 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874' +
+              'a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .' +
+              '314-.464L7.443.184z"/>'#13#10'</svg>'
+          end
+          object lblNavExplore: TLabel
+            Align = Client
+            StyledSettings = []
+            Margins.Right = 5.000000000000000000
+            Size.Width = 323.000000000000000000
+            Size.Height = 30.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Open Sans'
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.FontColor = xFF40474F
+            Text = 'Explore'
+            TabOrder = 1
+          end
+        end
+      end
     end
     object layNavSettings: TLayout
       Align = Bottom
@@ -5890,7 +5882,7 @@ object frmMain: TfrmMain
       Size.Height = 58.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 3
-      object RoundRect1: TRoundRect
+      object btnNavSettings: TRoundRect
         Align = Right
         Cursor = crHandPoint
         Fill.Kind = None
@@ -5903,10 +5895,10 @@ object frmMain: TfrmMain
         Size.Height = 38.000000000000000000
         Size.PlatformDefault = False
         Stroke.Kind = None
-        OnClick = RoundRect1Click
+        OnClick = btnNavSettingsClick
         OnMouseEnter = btnNavItemMouseEnter
         OnMouseLeave = btnNavItemMouseLeave
-        object imgSettings: TSkSvg
+        object imgNavSettings: TSkSvg
           Align = Center
           Size.Width = 20.000000000000000000
           Size.Height = 20.000000000000000000

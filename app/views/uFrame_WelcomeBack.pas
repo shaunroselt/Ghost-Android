@@ -26,22 +26,24 @@ uses
 
 type
   TFrame_WelcomeBack = class(TFrame, IFrameController)
-    Layout2: TLayout;
+    layWelcomeBack: TLayout;
     Label2: TLabel;
     Label3: TLabel;
     Layout5: TLayout;
-    Label4: TLabel;
-    Rectangle3: TRectangle;
+    lblSiteAddress: TLabel;
+    laySiteAddress: TRectangle;
     edtSiteAddress: TEdit;
     Label5: TLabel;
     Label6: TLabel;
     btnContinue: TRectangle;
-    Label7: TLabel;
-    Layout3: TLayout;
-    Layout4: TLayout;
-    Image1: TImage;
-    Label1: TLabel;
+    lblButtonContinue: TLabel;
+    layLogo: TLayout;
+    layLogoGhost: TLayout;
+    imgLogoGhost: TImage;
+    lblLogoGhost: TLabel;
     procedure btnContinueClick(Sender: TObject);
+    procedure EditOnFocus(Sender: TObject; var ACanFocus: Boolean);
+    procedure EditOnFocusExit(Sender: TObject);
   private
     { Private declarations }
     FFrameInterface: IFrameInterface;
@@ -70,9 +72,24 @@ begin
   FFrameInterface.LogInfo(dmAPI.AdminSite.version);
 end;
 
+procedure TFrame_WelcomeBack.EditOnFocus(Sender: TObject; var ACanFocus: Boolean);
+begin
+  var SiteAddressContainer := TRectangle(TEdit(Sender).ParentControl);
+  SiteAddressContainer.Stroke.Color := $FF7C8B9A;
+end;
+
+procedure TFrame_WelcomeBack.EditOnFocusExit(Sender: TObject);
+begin
+  var SiteAddressContainer := TRectangle(TEdit(Sender).ParentControl);
+  SiteAddressContainer.Stroke.Color := $FFDBE3E7;
+end;
+
 procedure TFrame_WelcomeBack.FrameShow;
 begin
-  edtSiteAddress.Text := 'https://www.spectralwebservices.com';
+  edtSiteAddress.Text := '';
+  {$IFDEF DEBUG}
+    edtSiteAddress.Text := 'http://localhost:2368';
+  {$ENDIF}
 end;
 
 procedure TFrame_WelcomeBack.SetFrameInterface(const aFrameInterface: IFrameInterface);

@@ -2,19 +2,19 @@ object Frame_SignIn: TFrame_SignIn
   Size.Width = 972.000000000000000000
   Size.Height = 676.000000000000000000
   Size.PlatformDefault = False
-  object Layout1: TLayout
+  object laySignIn: TLayout
     Align = Center
     Size.Width = 533.000000000000000000
     Size.Height = 432.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
-    object Layout6: TLayout
+    object layLogo: TLayout
       Align = Top
       Size.Width = 533.000000000000000000
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
-      object imgSignInLogo: TImage
+      object imgLogoSignIn: TImage
         MultiResBitmap.Height = 800
         MultiResBitmap.Width = 800
         MultiResBitmap = <
@@ -4397,7 +4397,7 @@ object Frame_SignIn: TFrame_SignIn
         Position.X = 241.000000000000000000
       end
     end
-    object lblSignInTitle: TLabel
+    object lblTitleSignIn: TLabel
       Align = Top
       AutoSize = True
       StyledSettings = [FontColor]
@@ -4421,7 +4421,7 @@ object Frame_SignIn: TFrame_SignIn
       Size.Height = 69.000015258789060000
       Size.PlatformDefault = False
       TabOrder = 3
-      object Label11: TLabel
+      object lblEmailAddress: TLabel
         Align = Top
         AutoSize = True
         StyledSettings = [FontColor]
@@ -4433,7 +4433,7 @@ object Frame_SignIn: TFrame_SignIn
         Text = 'Email address'
         TabOrder = 1
       end
-      object Rectangle5: TRectangle
+      object layEmailAddress: TRectangle
         Align = Top
         Cursor = crHandPoint
         Fill.Color = claWhite
@@ -4461,6 +4461,8 @@ object Frame_SignIn: TFrame_SignIn
           Size.PlatformDefault = False
           TextPrompt = 'jamie@example.com'
           StyledSettings = [Style, FontColor]
+          OnCanFocus = EditOnFocus
+          OnExit = EditOnFocusExit
         end
       end
     end
@@ -4479,7 +4481,7 @@ object Frame_SignIn: TFrame_SignIn
       OnClick = btnSignInClick
       OnMouseEnter = btnSignInMouseEnter
       OnMouseLeave = btnSignInMouseLeave
-      object Label14: TLabel
+      object lblButtonSignIn: TLabel
         Align = Client
         AutoSize = True
         StyledSettings = []
@@ -4506,7 +4508,7 @@ object Frame_SignIn: TFrame_SignIn
       Size.Height = 69.000015258789060000
       Size.PlatformDefault = False
       TabOrder = 2
-      object Label8: TLabel
+      object lblPassword: TLabel
         Align = Top
         AutoSize = True
         StyledSettings = [FontColor]
@@ -4518,7 +4520,7 @@ object Frame_SignIn: TFrame_SignIn
         Text = 'Password'
         TabOrder = 1
       end
-      object Rectangle7: TRectangle
+      object layPassword: TRectangle
         Align = Top
         Cursor = crHandPoint
         Fill.Color = claWhite
@@ -4535,6 +4537,7 @@ object Frame_SignIn: TFrame_SignIn
           Align = Client
           StyleLookup = 'transparentedit'
           TabOrder = 3
+          Password = True
           TextSettings.Font.Family = 'Open Sans'
           TextSettings.Font.Size = 14.000000000000000000
           Margins.Left = 8.000000000000000000
@@ -4545,6 +4548,8 @@ object Frame_SignIn: TFrame_SignIn
           Size.PlatformDefault = False
           TextPrompt = #8226#8226#8226#8226#8226#8226#8226#8226#8226#8226#8226#8226#8226#8226#8226
           StyledSettings = [Style, FontColor]
+          OnCanFocus = EditOnFocus
+          OnExit = EditOnFocusExit
         end
         object btnForgotPassword: TLabel
           Align = MostRight
@@ -4569,7 +4574,7 @@ object Frame_SignIn: TFrame_SignIn
           OnMouseEnter = btnForgotPasswordMouseEnter
           OnMouseLeave = btnForgotPasswordMouseLeave
         end
-        object Line1: TLine
+        object LinePassword: TLine
           Align = Right
           LineType = Diagonal
           Margins.Left = 4.000000000000000000

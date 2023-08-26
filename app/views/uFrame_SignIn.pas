@@ -26,22 +26,22 @@ uses
 
 type
   TFrame_SignIn = class(TFrame, IFrameController)
-    Layout1: TLayout;
-    Layout6: TLayout;
-    imgSignInLogo: TImage;
-    lblSignInTitle: TLabel;
+    laySignIn: TLayout;
+    layLogo: TLayout;
+    imgLogoSignIn: TImage;
+    lblTitleSignIn: TLabel;
     Layout8: TLayout;
-    Label11: TLabel;
-    Rectangle5: TRectangle;
+    lblEmailAddress: TLabel;
+    layEmailAddress: TRectangle;
     edtEmailAddress: TEdit;
     btnSignIn: TRectangle;
-    Label14: TLabel;
+    lblButtonSignIn: TLabel;
     Layout7: TLayout;
-    Label8: TLabel;
-    Rectangle7: TRectangle;
+    lblPassword: TLabel;
+    layPassword: TRectangle;
     edtPassword: TEdit;
     btnForgotPassword: TLabel;
-    Line1: TLine;
+    LinePassword: TLine;
     btnTempWelcomeBack: TButton;
     procedure btnSignInClick(Sender: TObject);
     procedure btnTempWelcomeBackClick(Sender: TObject);
@@ -49,6 +49,8 @@ type
     procedure btnForgotPasswordMouseLeave(Sender: TObject);
     procedure btnSignInMouseEnter(Sender: TObject);
     procedure btnSignInMouseLeave(Sender: TObject);
+    procedure EditOnFocus(Sender: TObject; var ACanFocus: Boolean);
+    procedure EditOnFocusExit(Sender: TObject);
   private
     { Private declarations }
     FFrameInterface: IFrameInterface;
@@ -103,13 +105,29 @@ begin
     FFrameInterface.ShowFrame('WelcomeBack', False);
 end;
 
+procedure TFrame_SignIn.EditOnFocus(Sender: TObject; var ACanFocus: Boolean);
+begin
+  var SiteAddressContainer := TRectangle(TEdit(Sender).ParentControl);
+  SiteAddressContainer.Stroke.Color := $FF7C8B9A;
+end;
+
+procedure TFrame_SignIn.EditOnFocusExit(Sender: TObject);
+begin
+  var SiteAddressContainer := TRectangle(TEdit(Sender).ParentControl);
+  SiteAddressContainer.Stroke.Color := $FFDBE3E7;
+end;
+
 procedure TFrame_SignIn.FrameShow;
 begin
-  edtEmailAddress.Text := 'Me@ShaunRoselt.com';
-  edtPassword.Text := '0822004431';
+  edtEmailAddress.Text := '';
+  edtPassword.Text := '';
+  {$IFDEF DEBUG}
+    edtEmailAddress.Text := 'Me@ShaunRoselt.com';
+    edtPassword.Text := '';
+  {$ENDIF}
 
-  imgSignInLogo.Bitmap := dmAPI.AdminSite.logo;
-  lblSignInTitle.Text := 'Sign in to ' + dmAPI.AdminSite.title + '.';
+  imgLogoSignIn.Bitmap := dmAPI.AdminSite.logo;
+  lblTitleSignIn.Text := 'Sign in to ' + dmAPI.AdminSite.title + '.';
   btnSignIn.Fill.Color := dmAPI.AdminSite.accent_color;
   btnSignIn.Stroke.Color := dmAPI.AdminSite.accent_color;
 end;
