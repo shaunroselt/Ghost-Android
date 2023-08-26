@@ -8,8 +8,10 @@ uses
   System.UITypes,
   System.JSON,
   System.Net.HttpClient,
+  System.ImageList,
 
   FMX.Graphics,
+  FMX.ImgList,
 
   REST.Types,
   REST.Client,
@@ -17,7 +19,7 @@ uses
   Data.Bind.Components,
   Data.Bind.ObjectScope,
 
-  uUtilities, System.ImageList, FMX.ImgList;
+  uUtilities;
 
 type
   TAdminSite = record
@@ -25,6 +27,7 @@ type
     description: String;
     logo_url: String;
     logo: TBitmap;
+    icon_url: String;
     accent_color: TAlphaColor;
     locale: String;
     url: String;
@@ -67,9 +70,9 @@ procedure TdmAPI.SetAdminSite(AdminURL: String);
     myRec: TAlphaColorRec;
   begin
     myRec.A := StrToInt('$' + Copy(AString, 2, 2));
-    myRec.R := StrToInt('$' + Copy(AString, 5, 2));
-    myRec.G := StrToInt('$' + Copy(AString, 7, 2));
-    myRec.B := StrToInt('$' + Copy(AString, 9, 2));
+    myRec.R := StrToInt('$' + Copy(AString, 4, 2));
+    myRec.G := StrToInt('$' + Copy(AString, 6, 2));
+    myRec.B := StrToInt('$' + Copy(AString, 8, 2));
     Result := myRec.Color;
   end;
 begin
@@ -80,7 +83,7 @@ begin
     reqAdminSite.Execute;
     if (resAdminSite.StatusCode = 200) then
     begin
-      var AdminSiteJSON := TJsonObject.ParseJSONValue(resAdminSite.Content);
+      var AdminSiteJSON: TJsonValue := TJsonObject.ParseJSONValue(resAdminSite.Content);
       var AdminSiteObj := AdminSiteJSON.GetValue<TJsonObject>('site');
 
       AdminSite.title := AdminSiteObj.GetValue<String>('title');
@@ -90,12 +93,14 @@ begin
         AdminSite.logo := DownloadImageFromURL(AdminSite.logo_url)
       else
         AdminSite.logo := ImageList.Source.Items[ImageList.Source.IndexOf('logo')].MultiResBitmap[0].Bitmap;
+      AdminSite.icon_url := AdminSiteObj.GetValue<String>('icon');
       AdminSite.accent_color := StringToAlphaColor(AdminSiteObj.GetValue<String>('accent_color').Replace('#','$FF'));
       AdminSite.locale := AdminSiteObj.GetValue<String>('locale');
       AdminSite.url := AdminSiteObj.GetValue<String>('url');
       AdminSite.version := AdminSiteObj.GetValue<String>('version');
 
-      AdminSiteObj.Free;
+//      AdminSiteObj.Free;
+      AdminSiteJSON.Free;
     end;
   except
 

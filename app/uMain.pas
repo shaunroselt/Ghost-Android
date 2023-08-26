@@ -144,30 +144,6 @@ type
     SwitchWordWrap: TSwitch;
     lblSwitchWordWrap: TLabel;
     lblTopSettings: TLabel;
-    layAppInfo: TRectangle;
-    imgAppInfo: TImage;
-    layAppInfoTitleDescription: TLayout;
-    lblAppInfoTitle: TLabel;
-    lblAppInfoDescription: TLabel;
-    btnAppInfoCopyToClipboard: TButton;
-    imgAppInfoCopyToClipboard: TSkSvg;
-    btnChangeLog: TButton;
-    imgChangeLog: TSkSvg;
-    layUsefulLinks: TRectangle;
-    layUsefulLinksTitle: TLayout;
-    SkSvg9: TSkSvg;
-    Label20: TLabel;
-    laySourceCodeLink: TLayout;
-    btnSourceCodeLink: TRectangle;
-    SkSvg10: TSkSvg;
-    Label21: TLabel;
-    layMicrosoftStoreLink: TLayout;
-    Label22: TLabel;
-    SkSvg11: TSkSvg;
-    laySteamLink: TLayout;
-    btnSteamLink: TRectangle;
-    Image5: TSkSvg;
-    Label23: TLabel;
     layChangeLog: TScrollBox;
     layMemoChangeLog: TRectangle;
     memChangeLog: TMemo;
@@ -175,13 +151,12 @@ type
     RoundRect3: TRoundRect;
     Label24: TLabel;
     StyleBook1: TStyleBook;
-    procedure btnSignInClick(Sender: TObject);
-    procedure Rectangle2Click(Sender: TObject);
     procedure btnNavItemMouseEnter(Sender: TObject);
     procedure btnNavItemMouseLeave(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure RoundRect1Click(Sender: TObject);
     procedure btnAllToolsClick(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     { Private declarations }
   public
@@ -197,25 +172,14 @@ implementation
 
 {$R *.fmx}
 
-procedure TfrmMain.Rectangle2Click(Sender: TObject);
-begin
-
-
-
-
-//  imgSignInLogo.Bitmap := dmAPI.AdminSite.logo;
-//  lblSignInTitle.Text := 'Sign in to ' + dmAPI.AdminSite.title + '.';
-//  btnSignIn.Fill.Color := dmAPI.AdminSite.accent_color;
-//  btnSignIn.Stroke.Color := dmAPI.AdminSite.accent_color;
-
-end;
-
 procedure TfrmMain.RoundRect1Click(Sender: TObject);
 begin
   ShowFrame('Settings', True);
 end;
 
 procedure TfrmMain.ShowFrame(aName: String; bShowNavigation: Boolean);
+var
+  aFrameController: IFrameController;
 begin
   aName := 'lay' + aName;
   for var I := 0 to LayoutContainer.Children.Count-1 do // Loop through all frames and hide them
@@ -227,6 +191,9 @@ begin
     TControl(cmpFrameLayoutName).Visible := True; // Show the selected frame
     if (cmpFrameLayoutName is TFrame) then // Check if the frame is a TFrame
     begin
+      if Supports(TFrame(cmpFrameLayoutName), IFrameController, aFrameController) then
+        aFrameController.FrameShow; // Call FrameShow Event if it's a Frame
+
       var OnResizeEvent := TNotifyEvent(TFrame(cmpFrameLayoutName).OnResize);
       var NilEvent := TNotifyEvent(nil);
       if (TMethod(OnResizeEvent) <> TMethod(NilEvent)) then
@@ -253,17 +220,6 @@ begin
   TShape(Sender).Fill.Kind := TBrushKind.None;
 end;
 
-procedure TfrmMain.btnSignInClick(Sender: TObject);
-begin
-
-//  Memo1.Lines.Add('================================================');
-//  var LoginSuccess := dmAPI.Login(edtEmailAddress.Text, edtPassword.Text);
-//  if (LoginSuccess) then
-//    Memo1.Lines.Add('Login successful')
-//  else
-//    Memo1.Lines.Add('Login failed');
-end;
-
 procedure TfrmMain.FormCreate(Sender: TObject);
   procedure CreateFrame(aFrame: TFrame; FrameName: String);
     var aFrameController: IFrameController;
@@ -281,6 +237,11 @@ begin
 
   ShowFrame('WelcomeBack', False);
 
+end;
+
+procedure TfrmMain.FormDestroy(Sender: TObject);
+begin
+  dmAPI.AdminSite.Clear;
 end;
 
 procedure TfrmMain.LogInfo(sString: String);

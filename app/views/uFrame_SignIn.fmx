@@ -4477,6 +4477,8 @@ object Frame_SignIn: TFrame_SignIn
       XRadius = 8.000000000000000000
       YRadius = 8.000000000000000000
       OnClick = btnSignInClick
+      OnMouseEnter = btnSignInMouseEnter
+      OnMouseLeave = btnSignInMouseLeave
       object Label14: TLabel
         Align = Client
         AutoSize = True
@@ -4544,10 +4546,12 @@ object Frame_SignIn: TFrame_SignIn
           TextPrompt = #8226#8226#8226#8226#8226#8226#8226#8226#8226#8226#8226#8226#8226#8226#8226
           StyledSettings = [Style, FontColor]
         end
-        object Label10: TLabel
+        object btnForgotPassword: TLabel
           Align = MostRight
           AutoSize = True
+          Cursor = crHandPoint
           StyledSettings = []
+          HitTest = True
           Margins.Top = 8.000000000000000000
           Margins.Right = 8.000000000000000000
           Margins.Bottom = 8.000000000000000000
@@ -4562,6 +4566,8 @@ object Frame_SignIn: TFrame_SignIn
           TextSettings.HorzAlign = Center
           Text = 'Forgot?'
           TabOrder = 2
+          OnMouseEnter = btnForgotPasswordMouseEnter
+          OnMouseLeave = btnForgotPasswordMouseLeave
         end
         object Line1: TLine
           Align = Right
@@ -4579,5 +4585,16 @@ object Frame_SignIn: TFrame_SignIn
         end
       end
     end
+  end
+  object btnTempWelcomeBack: TButton
+    Cursor = crHandPoint
+    Position.X = 8.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 289.000000000000000000
+    Size.Height = 41.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    Text = 'Temporary Button to go back to Welcome'
+    OnClick = btnTempWelcomeBackClick
   end
 end

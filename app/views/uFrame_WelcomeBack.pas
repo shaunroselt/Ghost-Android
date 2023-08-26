@@ -21,6 +21,7 @@ uses
   FMX.Layouts,
 
   uFrameInterface,
+  uUtilities,
   uAPI;
 
 type
@@ -47,6 +48,7 @@ type
   public
     { Public declarations }
     procedure SetFrameInterface(const aFrameInterface: IFrameInterface);
+    procedure FrameShow();
   end;
 
 implementation
@@ -54,13 +56,6 @@ implementation
 {$R *.fmx}
 
 procedure TFrame_WelcomeBack.btnContinueClick(Sender: TObject);
-  function AlphaColorToString(const AColor: TAlphaColor): string;
-  begin
-    Result := '$' + IntToHex(TAlphaColorRec(AColor).A, 2) +
-              IntToHex(TAlphaColorRec(AColor).R, 2) +
-              IntToHex(TAlphaColorRec(AColor).G, 2) +
-              IntToHex(TAlphaColorRec(AColor).B, 2);
-  end;
 begin
   dmAPI.SetAdminSite(edtSiteAddress.Text);
   FFrameInterface.ShowFrame('SignIn', False);
@@ -73,6 +68,11 @@ begin
   FFrameInterface.LogInfo(dmAPI.AdminSite.locale);
   FFrameInterface.LogInfo(dmAPI.AdminSite.url);
   FFrameInterface.LogInfo(dmAPI.AdminSite.version);
+end;
+
+procedure TFrame_WelcomeBack.FrameShow;
+begin
+  edtSiteAddress.Text := 'https://www.spectralwebservices.com';
 end;
 
 procedure TFrame_WelcomeBack.SetFrameInterface(const aFrameInterface: IFrameInterface);

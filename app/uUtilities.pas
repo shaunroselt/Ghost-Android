@@ -5,6 +5,7 @@ interface
 uses
   System.Classes,
   System.SysUtils,
+  System.UITypes,
   System.Net.HttpClient,
   System.Net.HttpClientComponent,
 
@@ -12,6 +13,9 @@ uses
 
 
 function DownloadImageFromURL(URL: string): TBitmap;
+
+function IncreaseOpacity(Color: TAlphaColor; Percentage: Single): TAlphaColor;
+function AlphaColorToString(const AColor: TAlphaColor): string;
 
 implementation
 
@@ -32,6 +36,19 @@ begin
       Stream.Free;
     end;
   end;
+end;
+
+function IncreaseOpacity(Color: TAlphaColor; Percentage: Single): TAlphaColor;
+begin
+  Result := TAlphaColor(Round($FF * Percentage) shl 24 + Color and $FFFFFF);
+end;
+
+function AlphaColorToString(const AColor: TAlphaColor): string;
+begin
+  Result := '$' + IntToHex(TAlphaColorRec(AColor).A, 2) +
+            IntToHex(TAlphaColorRec(AColor).R, 2) +
+            IntToHex(TAlphaColorRec(AColor).G, 2) +
+            IntToHex(TAlphaColorRec(AColor).B, 2);
 end;
 
 end.

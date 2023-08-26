@@ -12,6 +12,7 @@ type
   IFrameController = interface
     ['{5498E3C5-8BF3-4B86-937D-323FD2C2306D}']
     procedure SetFrameInterface(const aFrameInterface: IFrameInterface);
+    procedure FrameShow();
   end;
 
 implementation

@@ -15,6 +15,12 @@ uses
 
 begin
   GlobalUseSkia := True;
+
+  // Enable Memory leaks detection for debug build
+  {$IFDEF DEBUG}
+    ReportMemoryLeaksOnShutdown := True;
+  {$ENDIF}
+
   Application.Initialize;
   Application.CreateForm(TfrmMain, frmMain);
   Application.CreateForm(TdmAPI, dmAPI);
