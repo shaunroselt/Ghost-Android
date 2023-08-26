@@ -53,7 +53,6 @@ type
     btnNavPosts: TRectangle;
     imgNavPosts: TSkSvg;
     lblNavPosts: TLabel;
-    imgNavPostsExpandCollapse: TSkSvg;
     layNavPostsDrafts: TLayout;
     btnNavPostsDrafts: TRectangle;
     lblNavPostsDrafts: TLabel;
@@ -149,10 +148,13 @@ type
     lblNavExplore: TLabel;
     Layout2: TLayout;
     Splitter1: TSplitter;
+    Switch1: TSwitch;
+    btnNavPostsAdd: TRoundRect;
+    btnNavPostsExpandCollapse: TRoundRect;
+    imgNavPostsExpandCollapse: TSkSvg;
     procedure btnNavItemMouseEnter(Sender: TObject);
     procedure btnNavItemMouseLeave(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure btnNavSettingsClick(Sender: TObject);
     procedure btnNavDashboardsClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnNavTestingClick(Sender: TObject);
@@ -162,6 +164,8 @@ type
     procedure btnNavPagesClick(Sender: TObject);
     procedure btnNavTagsClick(Sender: TObject);
     procedure btnNavMembersClick(Sender: TObject);
+    procedure btnNavItemExpandCollapse(Sender: TObject);
+    procedure btnNavSettingsClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -176,11 +180,6 @@ var
 implementation
 
 {$R *.fmx}
-
-procedure TfrmMain.btnNavSettingsClick(Sender: TObject);
-begin
-  ShowFrame('Settings', True);
-end;
 
 procedure TfrmMain.ShowFrame(aName: String; bShowNavigation: Boolean);
 var
@@ -244,6 +243,11 @@ begin
   ShowFrame('Posts', True);
 end;
 
+procedure TfrmMain.btnNavSettingsClick(Sender: TObject);
+begin
+  ShowFrame('Settings', True);
+end;
+
 procedure TfrmMain.btnNavTagsClick(Sender: TObject);
 begin
   ShowFrame('Tags', True);
@@ -285,6 +289,41 @@ begin
   CreateFrame(TFrame_SignIn.Create(Self),'SignIn');
 
   ShowFrame('WelcomeBack', False);
+end;
+
+procedure TfrmMain.btnNavItemExpandCollapse(Sender: TObject);
+begin
+  var Button := TRectangle(Sender);
+  var MainButton := TRectangle(Button.ParentControl);
+  var ButtonLayout := MainButton.ParentControl;
+  var ExpandCollapseLayout := ButtonLayout.ParentControl;
+  var ExpandCollapseImage := TSkSvg(Button.Children.Items[0]);
+
+  if (ExpandCollapseLayout.Height = ButtonLayout.Height) then
+  begin
+    ExpandCollapseLayout.Height := ButtonLayout.Height * ExpandCollapseLayout.ChildrenCount;
+    ExpandCollapseLayout.Margins.Bottom := 40;
+    ExpandCollapseImage.Svg.Source :=
+      '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">' +
+        '<path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>' +
+      '</svg>'; // Chevron Up Icon
+
+    for var I := 0 to ExpandCollapseLayout.ChildrenCount-1 do
+      if ExpandCollapseLayout.Children.Items[I].Name <> ButtonLayout.Name then
+        TControl(ExpandCollapseLayout.Children.Items[I]).Visible := True;
+  end else
+  begin
+    ExpandCollapseLayout.Height := ButtonLayout.Height;
+    ExpandCollapseLayout.Margins.Bottom := 0;
+    ExpandCollapseImage.Svg.Source :=
+      '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">' +
+        '<path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>' +
+      '</svg>'; // Chevron Down Icon
+
+    for var I := 0 to ExpandCollapseLayout.ChildrenCount-1 do
+      if ExpandCollapseLayout.Children.Items[I].Name <> ButtonLayout.Name then
+        TControl(ExpandCollapseLayout.Children.Items[I]).Visible := False;
+  end;
 end;
 
 procedure TfrmMain.LogInfo(sString: String);
