@@ -1,5 +1,175 @@
 object Frame_SignUpThemePreview: TFrame_SignUpThemePreview
-  Size.Width = 868.000000000000000000
-  Size.Height = 604.000000000000000000
+  Size.Width = 976.000000000000000000
+  Size.Height = 700.000000000000000000
   Size.PlatformDefault = False
+  object Layout1: TLayout
+    Align = Top
+    Padding.Left = 20.000000000000000000
+    Padding.Top = 20.000000000000000000
+    Padding.Right = 20.000000000000000000
+    Padding.Bottom = 20.000000000000000000
+    Size.Width = 976.000000000000000000
+    Size.Height = 81.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object lblYouCanAlwaysChangeThisLater: TLabel
+      Align = MostLeft
+      AutoSize = True
+      StyledSettings = []
+      Position.X = 20.000000000000000000
+      Position.Y = 20.000000000000000000
+      Size.Width = 184.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Family = 'Open Sans'
+      TextSettings.Font.Size = 16.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.FontColor = xFF738A94
+      Text = '  '#8592' Back to themes'
+      TabOrder = 3
+    end
+    object btnStartWithTheme: TRectangle
+      Align = MostRight
+      Cursor = crHandPoint
+      Fill.Color = claBlack
+      HitTest = False
+      Position.X = 772.000000000000000000
+      Position.Y = 20.000000000000000000
+      Sides = []
+      Size.Width = 184.000000000000000000
+      Size.Height = 41.000000000000000000
+      Size.PlatformDefault = False
+      XRadius = 8.000000000000000000
+      YRadius = 8.000000000000000000
+      object lblStartWithTheme: TLabel
+        Align = Client
+        AutoSize = True
+        StyledSettings = []
+        Margins.Left = 8.000000000000000000
+        Margins.Top = 8.000000000000000000
+        Margins.Right = 8.000000000000000000
+        Margins.Bottom = 8.000000000000000000
+        Size.Width = 168.000000000000000000
+        Size.Height = 25.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Family = 'Open Sans'
+        TextSettings.Font.Size = 16.000000000000000000
+        TextSettings.FontColor = claWhite
+        TextSettings.HorzAlign = Center
+        Text = 'Start with Theme '#8594
+        TabOrder = 3
+      end
+    end
+    object Rectangle1: TRectangle
+      Align = Center
+      Size.Width = 50.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      object SkSvg1: TSkSvg
+        Align = Client
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Size.Width = 30.000000000000000000
+        Size.Height = 30.000000000000000000
+        Size.PlatformDefault = False
+        Svg.Source = 
+          '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><def' +
+          's><style>.a{fill:none;stroke:currentColor;stroke-linecap:round;s' +
+          'troke-linejoin:round;stroke-width:1.5px;}</style></defs><title>s' +
+          'creen-1</title><rect class="a" x="0.747" y="2.25" width="22.5" h' +
+          'eight="15" rx="1.5" ry="1.5"/><polygon class="a" points="15.747 ' +
+          '21.75 8.247 21.75 8.997 17.25 14.997 17.25 15.747 21.75"/><line ' +
+          'class="a" x1="5.997" y1="21.75" x2="17.997" y2="21.75"/></svg>'
+      end
+    end
+  end
+  object btnThemeCasper: TLayout
+    Align = Client
+    Cursor = crHandPoint
+    HitTest = True
+    Margins.Left = 40.000000000000000000
+    Margins.Top = 40.000000000000000000
+    Margins.Right = 40.000000000000000000
+    Size.Width = 896.000000000000000000
+    Size.Height = 579.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object layPreviewTheme: TRectangle
+      Align = Client
+      Cursor = crHandPoint
+      Fill.Color = claWhite
+      HitTest = False
+      Size.Width = 896.000000000000000000
+      Size.Height = 579.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Color = xFFDBE3E7
+      XRadius = 8.000000000000000000
+      YRadius = 8.000000000000000000
+      object layPreviewBrowserTheme: TLayout
+        Align = Top
+        Size.Width = 896.000000000000000000
+        Size.Height = 29.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        object imgPreviewBrowserDot1Theme: TSkSvg
+          Align = Left
+          Margins.Left = 9.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Position.X = 9.000000000000000000
+          Position.Y = 10.000000000000000000
+          Size.Width = 9.000000000000000000
+          Size.Height = 9.000000000000000000
+          Size.PlatformDefault = False
+          Svg.OverrideColor = xFFC5D2D9
+          Svg.Source = 
+            '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" f' +
+            'ill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16"' +
+            '>'#13#10'  <circle cx="8" cy="8" r="8"/>'#13#10'</svg>'
+        end
+        object imgPreviewBrowserDot3Theme: TSkSvg
+          Align = Left
+          Margins.Left = 6.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Position.X = 39.000000000000000000
+          Position.Y = 10.000000000000000000
+          Size.Width = 9.000000000000000000
+          Size.Height = 9.000000000000000000
+          Size.PlatformDefault = False
+          Svg.OverrideColor = xFFC5D2D9
+          Svg.Source = 
+            '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" f' +
+            'ill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16"' +
+            '>'#13#10'  <circle cx="8" cy="8" r="8"/>'#13#10'</svg>'
+        end
+        object imgPreviewBrowserDot2Theme: TSkSvg
+          Align = Left
+          Margins.Left = 6.000000000000000000
+          Margins.Top = 10.000000000000000000
+          Margins.Bottom = 10.000000000000000000
+          Position.X = 24.000000000000000000
+          Position.Y = 10.000000000000000000
+          Size.Width = 9.000000000000000000
+          Size.Height = 9.000000000000000000
+          Size.PlatformDefault = False
+          Svg.OverrideColor = xFFC5D2D9
+          Svg.Source = 
+            '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" f' +
+            'ill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16"' +
+            '>'#13#10'  <circle cx="8" cy="8" r="8"/>'#13#10'</svg>'
+        end
+      end
+      object WebPreviewTheme: TWebBrowser
+        Align = Client
+        Size.Width = 896.000000000000000000
+        Size.Height = 550.000000000000000000
+        Size.PlatformDefault = False
+        WindowsEngine = EdgeIfAvailable
+        URL = 'https://demo.ghost.io/'
+      end
+    end
+  end
 end

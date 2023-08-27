@@ -34,7 +34,7 @@ type
     laySiteAddress: TRectangle;
     edtSiteAddress: TEdit;
     Label5: TLabel;
-    Label6: TLabel;
+    btnGetStartedHere: TLabel;
     btnContinue: TRectangle;
     lblButtonContinue: TLabel;
     layLogo: TLayout;
@@ -44,6 +44,9 @@ type
     procedure btnContinueClick(Sender: TObject);
     procedure EditOnFocus(Sender: TObject; var ACanFocus: Boolean);
     procedure EditOnFocusExit(Sender: TObject);
+    procedure btnGetStartedHereMouseEnter(Sender: TObject);
+    procedure btnGetStartedHereMouseLeave(Sender: TObject);
+    procedure btnGetStartedHereClick(Sender: TObject);
   private
     { Private declarations }
     FFrameInterface: IFrameInterface;
@@ -70,6 +73,21 @@ begin
   FFrameInterface.LogInfo(dmAPI.AdminSite.locale);
   FFrameInterface.LogInfo(dmAPI.AdminSite.url);
   FFrameInterface.LogInfo(dmAPI.AdminSite.version);
+end;
+
+procedure TFrame_WelcomeBack.btnGetStartedHereClick(Sender: TObject);
+begin
+  FFrameInterface.ShowFrame('SignUpThemeSelection', False);
+end;
+
+procedure TFrame_WelcomeBack.btnGetStartedHereMouseEnter(Sender: TObject);
+begin
+  btnGetStartedHere.TextSettings.Font.Style := [TFontStyle.fsUnderline];
+end;
+
+procedure TFrame_WelcomeBack.btnGetStartedHereMouseLeave(Sender: TObject);
+begin
+  btnGetStartedHere.TextSettings.Font.Style := [];
 end;
 
 procedure TFrame_WelcomeBack.EditOnFocus(Sender: TObject; var ACanFocus: Boolean);

@@ -159,6 +159,7 @@ type
     btnNavPostsExpandCollapse: TRoundRect;
     imgNavPostsExpandCollapse: TSkSvg;
     Button1: TButton;
+    GridLayout1: TGridLayout;
     procedure btnNavItemMouseEnter(Sender: TObject);
     procedure btnNavItemMouseLeave(Sender: TObject);
     procedure FormCreate(Sender: TObject);

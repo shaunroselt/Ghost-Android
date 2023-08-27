@@ -108,10 +108,12 @@ object Frame_WelcomeBack: TFrame_WelcomeBack
       Text = 'Don'#39't have a Ghost site yet?'
       TabOrder = 2
     end
-    object Label6: TLabel
+    object btnGetStartedHere: TLabel
       Align = Top
       AutoSize = True
+      Cursor = crHandPoint
       StyledSettings = [FontColor]
+      HitTest = True
       Position.Y = 402.142852783203100000
       Size.Width = 533.000000000000000000
       Size.Height = 19.428558349609380000
@@ -121,6 +123,9 @@ object Frame_WelcomeBack: TFrame_WelcomeBack
       TextSettings.HorzAlign = Center
       Text = 'Get started here'
       TabOrder = 1
+      OnClick = btnGetStartedHereClick
+      OnMouseEnter = btnGetStartedHereMouseEnter
+      OnMouseLeave = btnGetStartedHereMouseLeave
     end
     object btnContinue: TRectangle
       Align = Top

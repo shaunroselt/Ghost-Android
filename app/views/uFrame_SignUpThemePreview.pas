@@ -22,10 +22,23 @@ uses
 
   uFrameInterface,
   uUtilities,
-  uAPI;
+  uAPI, System.Skia, FMX.Skia, FMX.WebBrowser;
 
 type
   TFrame_SignUpThemePreview = class(TFrame, IFrameController)
+    Layout1: TLayout;
+    lblYouCanAlwaysChangeThisLater: TLabel;
+    btnStartWithTheme: TRectangle;
+    lblStartWithTheme: TLabel;
+    Rectangle1: TRectangle;
+    SkSvg1: TSkSvg;
+    btnThemeCasper: TLayout;
+    layPreviewTheme: TRectangle;
+    layPreviewBrowserTheme: TLayout;
+    imgPreviewBrowserDot1Theme: TSkSvg;
+    imgPreviewBrowserDot3Theme: TSkSvg;
+    imgPreviewBrowserDot2Theme: TSkSvg;
+    WebPreviewTheme: TWebBrowser;
   private
     { Private declarations }
     FFrameInterface: IFrameInterface;

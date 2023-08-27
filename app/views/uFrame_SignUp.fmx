@@ -1,5 +1,5 @@
 object Frame_SignUp: TFrame_SignUp
-  Size.Width = 844.000000000000000000
-  Size.Height = 492.000000000000000000
+  Size.Width = 924.000000000000000000
+  Size.Height = 560.000000000000000000
   Size.PlatformDefault = False
 end

@@ -304,6 +304,26 @@
         </DCCReference>
         <DCCReference Include="uFrameInterface.pas"/>
         <DCCReference Include="uGhostIcons.pas"/>
+        <DCCReference Include="views\uFrame_SignUpThemeSelection.pas">
+            <Form>Frame_SignUpThemeSelection</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="views\uFrame_SignUpThemePreview.pas">
+            <Form>Frame_SignUpThemePreview</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="views\uFrame_SignUpSiteDetails.pas">
+            <Form>Frame_SignUpSiteDetails</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="views\uFrame_SignUpPersonalisedExperience.pas">
+            <Form>Frame_SignUpPersonalisedExperience</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
         <DCCReference Include="views\uFrame_SignUp.pas">
             <Form>Frame_SignUp</Form>
             <FormType>fmx</FormType>

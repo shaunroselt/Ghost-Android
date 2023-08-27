@@ -11,6 +11,10 @@ uses
   uFrame_SignIn in 'views\uFrame_SignIn.pas' {Frame_SignIn: TFrame},
   uFrameInterface in 'uFrameInterface.pas',
   uGhostIcons in 'uGhostIcons.pas',
+  uFrame_SignUpThemeSelection in 'views\uFrame_SignUpThemeSelection.pas' {Frame_SignUpThemeSelection: TFrame},
+  uFrame_SignUpThemePreview in 'views\uFrame_SignUpThemePreview.pas' {Frame_SignUpThemePreview: TFrame},
+  uFrame_SignUpSiteDetails in 'views\uFrame_SignUpSiteDetails.pas' {Frame_SignUpSiteDetails: TFrame},
+  uFrame_SignUpPersonalisedExperience in 'views\uFrame_SignUpPersonalisedExperience.pas' {Frame_SignUpPersonalisedExperience: TFrame},
   uFrame_SignUp in 'views\uFrame_SignUp.pas' {Frame_SignUp: TFrame};
 
 {$R *.res}

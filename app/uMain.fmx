@@ -178,36 +178,46 @@ object frmMain: TfrmMain
         Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
         DataDetectorTypes = []
         Align = MostBottom
-        Position.Y = 448.000000000000000000
+        Position.Y = 456.000000000000000000
         Size.Width = 848.000000000000000000
-        Size.Height = 316.000000000000000000
+        Size.Height = 308.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         Viewport.Width = 844.000000000000000000
-        Viewport.Height = 312.000000000000000000
+        Viewport.Height = 304.000000000000000000
       end
       object Layout2: TLayout
         Align = Client
         Size.Width = 848.000000000000000000
-        Size.Height = 444.000000000000000000
+        Size.Height = 452.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
         object Button1: TButton
-          Position.X = 280.000000000000000000
-          Position.Y = 160.000000000000000000
-          Size.Width = 305.000000000000000000
-          Size.Height = 121.000000000000000000
+          Align = Bottom
+          Position.Y = 424.000000000000000000
+          Size.Width = 848.000000000000000000
+          Size.Height = 28.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
-          Text = 'Button1'
+          Text = 'Get Admin Users API Request'
           OnClick = Button1Click
+        end
+        object GridLayout1: TGridLayout
+          Align = Client
+          ItemHeight = 480.000000000000000000
+          ItemWidth = 360.000000000000000000
+          Orientation = Horizontal
+          Size.Width = 848.000000000000000000
+          Size.Height = 424.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
         end
       end
       object Splitter1: TSplitter
         Align = Bottom
         Cursor = crVSplit
         MinSize = 20.000000000000000000
-        Position.Y = 444.000000000000000000
+        Position.Y = 452.000000000000000000
         Size.Width = 848.000000000000000000
         Size.Height = 4.000000000000000000
         Size.PlatformDefault = False
