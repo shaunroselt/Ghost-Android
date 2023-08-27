@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
   Left = 0
   Top = 0
-  Caption = 'Form2'
+  Caption = 'ghost'
   ClientHeight = 764
   ClientWidth = 1248
   Fill.Kind = Gradient
@@ -192,6 +192,16 @@ object frmMain: TfrmMain
         Size.Height = 444.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
+        object Button1: TButton
+          Position.X = 280.000000000000000000
+          Position.Y = 160.000000000000000000
+          Size.Width = 305.000000000000000000
+          Size.Height = 121.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Text = 'Button1'
+          OnClick = Button1Click
+        end
       end
       object Splitter1: TSplitter
         Align = Bottom
@@ -1160,7 +1170,7 @@ object frmMain: TfrmMain
         Size.Height = 67.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
-        object Image2: TImage
+        object imgNavLogo: TImage
           MultiResBitmap.Height = 800
           MultiResBitmap.Width = 800
           MultiResBitmap = <
@@ -5546,7 +5556,7 @@ object frmMain: TfrmMain
           Size.Height = 67.000000000000000000
           Size.PlatformDefault = False
         end
-        object Label9: TLabel
+        object lblNavLogoTitle: TLabel
           Align = Client
           StyledSettings = [FontColor]
           Margins.Left = 5.000000000000000000

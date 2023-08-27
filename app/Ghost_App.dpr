@@ -9,7 +9,9 @@ uses
   uUtilities in 'uUtilities.pas',
   uFrame_WelcomeBack in 'views\uFrame_WelcomeBack.pas' {Frame_WelcomeBack: TFrame},
   uFrame_SignIn in 'views\uFrame_SignIn.pas' {Frame_SignIn: TFrame},
-  uFrameInterface in 'uFrameInterface.pas';
+  uFrameInterface in 'uFrameInterface.pas',
+  uGhostIcons in 'uGhostIcons.pas',
+  uFrame_SignUp in 'views\uFrame_SignUp.pas' {Frame_SignUp: TFrame};
 
 {$R *.res}
 

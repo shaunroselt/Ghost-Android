@@ -1,0 +1,5 @@
+object Frame_SignUpSiteDetails: TFrame_SignUpSiteDetails
+  Size.Width = 852.000000000000000000
+  Size.Height = 536.000000000000000000
+  Size.PlatformDefault = False
+end

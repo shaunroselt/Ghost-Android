@@ -32,9 +32,15 @@ uses
 
   uFrameInterface,
   uAPI,
+  uGhostIcons,
 
   uFrame_WelcomeBack,
-  uFrame_SignIn;
+  uFrame_SignIn,
+  uFrame_SignUpSiteDetails,
+  uFrame_SignUpThemeSelection,
+  uFrame_SignUpThemePreview,
+  uFrame_SignUpPersonalisedExperience,
+  uFrame_SignUp;
 
 type
   TfrmMain = class(TForm, IFrameInterface)
@@ -64,8 +70,8 @@ type
     lblNavPostsScheduled: TLabel;
     layNavSettings: TLayout;
     Layout9: TLayout;
-    Image2: TImage;
-    Label9: TLabel;
+    imgNavLogo: TImage;
+    lblNavLogoTitle: TLabel;
     imgNavPostsAdd: TSkSvg;
     layNavViewSite: TLayout;
     btnNavViewSite: TRectangle;
@@ -152,6 +158,7 @@ type
     btnNavPostsAdd: TRoundRect;
     btnNavPostsExpandCollapse: TRoundRect;
     imgNavPostsExpandCollapse: TSkSvg;
+    Button1: TButton;
     procedure btnNavItemMouseEnter(Sender: TObject);
     procedure btnNavItemMouseLeave(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -166,12 +173,14 @@ type
     procedure btnNavMembersClick(Sender: TObject);
     procedure btnNavItemExpandCollapse(Sender: TObject);
     procedure btnNavSettingsClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
     procedure ShowFrame(aName: String; bShowNavigation: Boolean = True);
     procedure LogInfo(sString: String);
+    procedure UpdateMainForm();
   end;
 
 var
@@ -205,6 +214,12 @@ begin
     end;
     MultiView.Visible := bShowNavigation;
   end else ShowMessage('This frame is not available');
+end;
+
+procedure TfrmMain.UpdateMainForm;
+begin
+  imgNavLogo.Bitmap := dmAPI.AdminSite.logo;
+  lblNavLogoTitle.Text := dmAPI.AdminSite.title;
 end;
 
 procedure TfrmMain.btnNavDashboardsClick(Sender: TObject);
@@ -263,6 +278,24 @@ begin
   ShowFrame('ViewSite', True);
 end;
 
+procedure TfrmMain.Button1Click(Sender: TObject);
+begin
+  dmAPI.RefreshAdminUsers;
+  memTesting.Lines.Add('====================================');
+
+  dmAPI.tblAdminUsers.First;
+  while not dmAPI.tblAdminUsers.Eof do
+  begin
+    memTesting.Lines.Add(dmAPI.tblAdminUsers.FieldByName('id').AsString);
+    memTesting.Lines.Add(dmAPI.tblAdminUsers.FieldByName('name').AsString);
+    memTesting.Lines.Add(dmAPI.tblAdminUsers.FieldByName('slug').AsString);
+    memTesting.Lines.Add(dmAPI.tblAdminUsers.FieldByName('email').AsString);
+    memTesting.Lines.Add(dmAPI.tblAdminUsers.FieldByName('last_seen').AsString);
+    memTesting.Lines.Add(dmAPI.tblAdminUsers.FieldByName('url').AsString);
+    dmAPI.tblAdminUsers.Next;
+  end;
+end;
+
 procedure TfrmMain.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   dmAPI.AdminSite.Clear;
@@ -287,6 +320,11 @@ begin
 
   CreateFrame(TFrame_WelcomeBack.Create(Self),'WelcomeBack');
   CreateFrame(TFrame_SignIn.Create(Self),'SignIn');
+  CreateFrame(TFrame_SignUpSiteDetails.Create(Self),'SignUpSiteDetails');
+  CreateFrame(TFrame_SignUpThemeSelection.Create(Self),'SignUpThemeSelection');
+  CreateFrame(TFrame_SignUpThemePreview.Create(Self),'SignUpThemePreview');
+  CreateFrame(TFrame_SignUpPersonalisedExperience.Create(Self),'SignUpPersonalisedExperience');
+  CreateFrame(TFrame_SignUp.Create(Self),'SignUp');
 
   ShowFrame('WelcomeBack', False);
 end;

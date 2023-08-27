@@ -8,7 +8,7 @@ object Frame_WelcomeBack: TFrame_WelcomeBack
     Size.Height = 432.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
-    object Label2: TLabel
+    object lblWelcomeBack: TLabel
       Align = Top
       AutoSize = True
       StyledSettings = [FontColor]
@@ -24,7 +24,7 @@ object Frame_WelcomeBack: TFrame_WelcomeBack
       Text = 'Welcome back.'
       TabOrder = 4
     end
-    object Label3: TLabel
+    object lblContinueToYourSite: TLabel
       Align = Top
       AutoSize = True
       StyledSettings = []

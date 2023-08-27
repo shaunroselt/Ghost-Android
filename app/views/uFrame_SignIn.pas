@@ -1,4 +1,4 @@
-unit uFrame_SignIn;
+﻿unit uFrame_SignIn;
 
 interface
 
@@ -43,6 +43,7 @@ type
     btnForgotPassword: TLabel;
     LinePassword: TLine;
     btnTempWelcomeBack: TButton;
+    lblError: TLabel;
     procedure btnSignInClick(Sender: TObject);
     procedure btnTempWelcomeBackClick(Sender: TObject);
     procedure btnForgotPasswordMouseEnter(Sender: TObject);
@@ -51,6 +52,7 @@ type
     procedure btnSignInMouseLeave(Sender: TObject);
     procedure EditOnFocus(Sender: TObject; var ACanFocus: Boolean);
     procedure EditOnFocusExit(Sender: TObject);
+    procedure btnForgotPasswordClick(Sender: TObject);
   private
     { Private declarations }
     FFrameInterface: IFrameInterface;
@@ -60,11 +62,39 @@ type
     procedure FrameShow();
   end;
 
+const
+  USER_NOT_FOUND: String = 'User not found.';
+  NEED_EMAIL_ADDRESS: String = 'We need your email address to reset your password!';
+  FAILED_TO_SEND_EMAIL: String = 'Failed to send email. Reason: Email has been temporarily rejected.';
+
 implementation
 
 {$R *.fmx}
 
 { TFrame_SignIn }
+
+procedure TFrame_SignIn.btnForgotPasswordClick(Sender: TObject);
+begin
+  if IsValidEmail(edtEmailAddress.Text) then
+  begin
+    layEmailAddress.Stroke.Color := $FFDBE3E7;
+    lblError.Visible := False;
+    var LoginRecord := dmAPI.Login(edtEmailAddress.Text, edtPassword.Text);
+    if (LoginRecord.success) then
+    begin
+
+    end else
+    begin
+      lblError.Text := LoginRecord.login_message;
+      lblError.Visible := True;
+    end;
+  end else
+  begin
+    layEmailAddress.Stroke.Color := $FFF50B23;
+    lblError.Text := NEED_EMAIL_ADDRESS;
+    lblError.Visible := True;
+  end;
+end;
 
 procedure TFrame_SignIn.btnForgotPasswordMouseEnter(Sender: TObject);
 begin
@@ -78,20 +108,27 @@ end;
 
 procedure TFrame_SignIn.btnSignInClick(Sender: TObject);
 begin
-  var LoginSuccess := dmAPI.Login(edtEmailAddress.Text, edtPassword.Text);
+  var LoginRecord := dmAPI.Login(edtEmailAddress.Text, edtPassword.Text);
   FFrameInterface.LogInfo('================================================');
-  if (LoginSuccess) then
+  if (LoginRecord.success) then
   begin
     FFrameInterface.LogInfo('Login successful');
+    FFrameInterface.UpdateMainForm;
     FFrameInterface.ShowFrame('Dashboards', True);
   end else
+  begin
     FFrameInterface.LogInfo('Login failed');
+    lblError.Text := LoginRecord.login_message;
+    lblError.Visible := True;
+    lblButtonSignIn.Text := '✖️Retry';
+  end;
 end;
 
 procedure TFrame_SignIn.btnSignInMouseEnter(Sender: TObject);
 begin
-  btnSignIn.Fill.Color := IncreaseOpacity(dmAPI.AdminSite.accent_color, 9);
-  btnSignIn.Stroke.Color := IncreaseOpacity(dmAPI.AdminSite.accent_color, 9);
+  var btnFillColor := IncreaseOpacity(dmAPI.AdminSite.accent_color, 9);
+  btnSignIn.Fill.Color := btnFillColor;
+  btnSignIn.Stroke.Color := btnFillColor;
 end;
 
 procedure TFrame_SignIn.btnSignInMouseLeave(Sender: TObject);
@@ -119,6 +156,8 @@ end;
 
 procedure TFrame_SignIn.FrameShow;
 begin
+  lblError.Visible := False;
+  lblButtonSignIn.Text := 'Sign in →';
   edtEmailAddress.Text := '';
   edtPassword.Text := '';
   {$IFDEF DEBUG}

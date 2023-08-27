@@ -1,0 +1,5 @@
+object Frame_SignUpPersonalisedExperience: TFrame_SignUpPersonalisedExperience
+  Size.Width = 792.000000000000000000
+  Size.Height = 556.000000000000000000
+  Size.PlatformDefault = False
+end

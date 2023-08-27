@@ -5,7 +5,7 @@ object Frame_SignIn: TFrame_SignIn
   object laySignIn: TLayout
     Align = Center
     Size.Width = 533.000000000000000000
-    Size.Height = 432.000000000000000000
+    Size.Height = 459.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object layLogo: TLayout
@@ -4420,7 +4420,7 @@ object Frame_SignIn: TFrame_SignIn
       Size.Width = 533.000000000000000000
       Size.Height = 69.000015258789060000
       Size.PlatformDefault = False
-      TabOrder = 3
+      TabOrder = 4
       object lblEmailAddress: TLabel
         Align = Top
         AutoSize = True
@@ -4507,7 +4507,7 @@ object Frame_SignIn: TFrame_SignIn
       Size.Width = 533.000000000000000000
       Size.Height = 69.000015258789060000
       Size.PlatformDefault = False
-      TabOrder = 2
+      TabOrder = 3
       object lblPassword: TLabel
         Align = Top
         AutoSize = True
@@ -4571,6 +4571,7 @@ object Frame_SignIn: TFrame_SignIn
           TextSettings.HorzAlign = Center
           Text = 'Forgot?'
           TabOrder = 2
+          OnClick = btnForgotPasswordClick
           OnMouseEnter = btnForgotPasswordMouseEnter
           OnMouseLeave = btnForgotPasswordMouseLeave
         end
@@ -4589,6 +4590,22 @@ object Frame_SignIn: TFrame_SignIn
           Stroke.Color = xFF707B8B
         end
       end
+    end
+    object lblError: TLabel
+      Align = Top
+      AutoSize = True
+      StyledSettings = []
+      Margins.Top = 20.000000000000000000
+      Position.Y = 432.142883300781300000
+      Size.Width = 533.000000000000000000
+      Size.Height = 19.428558349609380000
+      Size.PlatformDefault = False
+      TextSettings.Font.Family = 'Open Sans'
+      TextSettings.Font.Size = 14.000000000000000000
+      TextSettings.FontColor = xFF707B8B
+      TextSettings.HorzAlign = Center
+      Text = 'We need your email address to reset your password!'
+      TabOrder = 2
     end
   end
   object btnTempWelcomeBack: TButton

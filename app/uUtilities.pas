@@ -6,11 +6,14 @@ uses
   System.Classes,
   System.SysUtils,
   System.UITypes,
+  System.RegularExpressions,
   System.Net.HttpClient,
   System.Net.HttpClientComponent,
 
   FMX.Graphics;
 
+
+function IsValidEmail(const AEmail: string): Boolean;
 
 function DownloadImageFromURL(URL: string): TBitmap;
 
@@ -18,6 +21,11 @@ function IncreaseOpacity(Color: TAlphaColor; Percentage: Single): TAlphaColor;
 function AlphaColorToString(const AColor: TAlphaColor): string;
 
 implementation
+
+function IsValidEmail(const AEmail: string): Boolean;
+begin
+  Result := TRegEx.IsMatch(AEmail, '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
+end;
 
 function DownloadImageFromURL(URL: string): TBitmap;
 begin

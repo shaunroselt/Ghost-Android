@@ -7,6 +7,7 @@ type
     ['{E7F0ABB0-5A10-4FA5-81CE-8627F536FBD2}']
     procedure ShowFrame(aName: String; bShowNavigation: Boolean = True);
     procedure LogInfo(sString: String);
+    procedure UpdateMainForm();
   end;
 
   IFrameController = interface

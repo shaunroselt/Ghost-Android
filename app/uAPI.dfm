@@ -6,7 +6,7 @@ object dmAPI: TdmAPI
     Accept = 'application/json, text/plain; q=0.9, text/html;q=0.8,'
     AcceptCharset = 'utf-8, *;q=0.8'
     BaseURL = 'http://localhost:2368'
-    ContentType = 'application/x-www-form-urlencoded'
+    ContentType = 'application/json'
     Params = <>
     SynchronizedEvents = False
     UserAgent = 'Ghost App'
@@ -20,7 +20,7 @@ object dmAPI: TdmAPI
       item
         Kind = pkREQUESTBODY
         Name = 'body'
-        Value = '{"username": "Me@ShaunRoselt.com","password": "0822004431"}'
+        Value = '{"username": "Me@ShaunRoselt.com","password": ""}'
         ContentTypeStr = 'application/json'
       end>
     Resource = 'ghost/api/admin/session'
@@ -30,6 +30,7 @@ object dmAPI: TdmAPI
     Top = 256
   end
   object resAdminSession: TRESTResponse
+    ContentType = 'application/json'
     Left = 320
     Top = 256
   end
@@ -4431,7 +4432,33 @@ object dmAPI: TdmAPI
         Name = 'Logo'
       end>
     Destination = <>
-    Left = 952
-    Top = 712
+    Left = 1480
+    Top = 48
+  end
+  object resAdminUsers: TRESTResponse
+    Left = 320
+    Top = 384
+  end
+  object reqAdminUsers: TRESTRequest
+    Client = RESTClientAdmin
+    Params = <>
+    Resource = 'ghost/api/admin/users'
+    Response = resAdminUsers
+    SynchronizedEvents = False
+    Left = 104
+    Top = 384
+  end
+  object tblAdminUsers: TClientDataSet
+    Aggregates = <>
+    FieldDefs = <>
+    IndexDefs = <>
+    Params = <
+      item
+        DataType = ftUnknown
+        ParamType = ptUnknown
+      end>
+    StoreDefs = True
+    Left = 520
+    Top = 384
   end
 end

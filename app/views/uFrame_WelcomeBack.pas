@@ -27,8 +27,8 @@ uses
 type
   TFrame_WelcomeBack = class(TFrame, IFrameController)
     layWelcomeBack: TLayout;
-    Label2: TLabel;
-    Label3: TLabel;
+    lblWelcomeBack: TLabel;
+    lblContinueToYourSite: TLabel;
     Layout5: TLayout;
     lblSiteAddress: TLabel;
     laySiteAddress: TRectangle;
@@ -90,6 +90,9 @@ begin
   {$IFDEF DEBUG}
     edtSiteAddress.Text := 'http://localhost:2368';
   {$ENDIF}
+
+  layWelcomeBack.Align := TAlignLayout.Center;
+  layWelcomeBack.Height := 432;
 end;
 
 procedure TFrame_WelcomeBack.SetFrameInterface(const aFrameInterface: IFrameInterface);

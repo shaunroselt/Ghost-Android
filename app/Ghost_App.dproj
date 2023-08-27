@@ -303,6 +303,12 @@
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="uFrameInterface.pas"/>
+        <DCCReference Include="uGhostIcons.pas"/>
+        <DCCReference Include="views\uFrame_SignUp.pas">
+            <Form>Frame_SignUp</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

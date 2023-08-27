@@ -1,0 +1,5 @@
+object Frame_SignUpThemePreview: TFrame_SignUpThemePreview
+  Size.Width = 868.000000000000000000
+  Size.Height = 604.000000000000000000
+  Size.PlatformDefault = False
+end
