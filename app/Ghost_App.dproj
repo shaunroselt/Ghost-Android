@@ -286,11 +286,6 @@
             <Form>frmMain</Form>
             <FormType>fmx</FormType>
         </DCCReference>
-        <DCCReference Include="uAPI.pas">
-            <Form>dmAPI</Form>
-            <FormType>dfm</FormType>
-            <DesignClass>TDataModule</DesignClass>
-        </DCCReference>
         <DCCReference Include="uUtilities.pas"/>
         <DCCReference Include="views\uFrame_WelcomeBack.pas">
             <Form>Frame_WelcomeBack</Form>
@@ -338,6 +333,21 @@
             <Form>Frame_Pages</Form>
             <FormType>fmx</FormType>
             <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="data\uDataModule_SignUp.pas">
+            <Form>dmSignUp</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="data\uDataModule_Themes.pas">
+            <Form>dmThemes</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="data\uDataModule_Main.pas">
+            <Form>dmMain</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
