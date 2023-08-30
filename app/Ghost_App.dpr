@@ -15,7 +15,9 @@ uses
   uFrame_SignUpThemePreview in 'views\uFrame_SignUpThemePreview.pas' {Frame_SignUpThemePreview: TFrame},
   uFrame_SignUpSiteDetails in 'views\uFrame_SignUpSiteDetails.pas' {Frame_SignUpSiteDetails: TFrame},
   uFrame_SignUpPersonalisedExperience in 'views\uFrame_SignUpPersonalisedExperience.pas' {Frame_SignUpPersonalisedExperience: TFrame},
-  uFrame_SignUp in 'views\uFrame_SignUp.pas' {Frame_SignUp: TFrame};
+  uFrame_SignUp in 'views\uFrame_SignUp.pas' {Frame_SignUp: TFrame},
+  uFrame_Posts in 'views\uFrame_Posts.pas' {Frame_Posts: TFrame},
+  uFrame_Pages in 'views\uFrame_Pages.pas' {Frame_Pages: TFrame};
 
 {$R *.res}
 

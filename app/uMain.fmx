@@ -84,7 +84,7 @@ object frmMain: TfrmMain
             Size.PlatformDefault = False
             TextSettings.Font.Size = 16.000000000000000000
             Text = 'Testing Stuff '#55357#56833#55357#56833#55357#56833
-            TabOrder = 6
+            TabOrder = 5
           end
           object Label19: TLabel
             Align = Client
@@ -94,7 +94,7 @@ object frmMain: TfrmMain
             TextSettings.Font.Size = 13.000000000000000000
             TextSettings.VertAlign = Leading
             Text = 'This is just some random testing text. Nothing important here.'
-            TabOrder = 5
+            TabOrder = 4
           end
           object Rectangle12: TRectangle
             Align = MostTop
@@ -183,8 +183,8 @@ object frmMain: TfrmMain
         Size.Height = 308.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
-        Viewport.Width = 844.000000000000000000
-        Viewport.Height = 304.000000000000000000
+        Viewport.Width = 848.000000000000000000
+        Viewport.Height = 308.000000000000000000
       end
       object Layout2: TLayout
         Align = Client
@@ -208,9 +208,18 @@ object frmMain: TfrmMain
           ItemWidth = 360.000000000000000000
           Orientation = Horizontal
           Size.Width = 848.000000000000000000
-          Size.Height = 424.000000000000000000
+          Size.Height = 402.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 2
+        end
+        object Button2: TButton
+          Align = Bottom
+          Position.Y = 402.000000000000000000
+          Size.Width = 848.000000000000000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 3
+          Text = 'Button2'
         end
       end
       object Splitter1: TSplitter
@@ -730,8 +739,8 @@ object frmMain: TfrmMain
           Size.Height = 651.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 1
-          Viewport.Width = 731.000000000000000000
-          Viewport.Height = 647.000000000000000000
+          Viewport.Width = 735.000000000000000000
+          Viewport.Height = 651.000000000000000000
         end
       end
       object lblChangeLog: TLabel
@@ -746,6 +755,15 @@ object frmMain: TfrmMain
         Text = 'Change Log'
         TabOrder = 0
       end
+    end
+    object layViewSite: TWebBrowser
+      Align = Client
+      Size.Width = 848.000000000000000000
+      Size.Height = 764.000000000000000000
+      Size.PlatformDefault = False
+      WindowsEngine = EdgeIfAvailable
+      URL = 'https://ghost.org/'
+      Visible = False
     end
   end
   object StyleBook1: TStyleBook
@@ -5632,7 +5650,7 @@ object frmMain: TfrmMain
             Align = Client
             StyledSettings = []
             Margins.Right = 5.000000000000000000
-            Size.Width = 322.000000000000000000
+            Size.Width = 268.000000000000000000
             Size.Height = 30.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.Family = 'Open Sans'
@@ -5640,6 +5658,38 @@ object frmMain: TfrmMain
             TextSettings.FontColor = xFF40474F
             Text = 'View site'
             TabOrder = 1
+          end
+          object btnNavViewSiteOpenExternally: TRoundRect
+            Align = MostRight
+            Cursor = crHandPoint
+            Fill.Color = xFFF3F4F6
+            Margins.Right = 24.000000000000000000
+            Position.X = 341.000000000000000000
+            Position.Y = 5.000000000000000000
+            Size.Width = 30.000000000000000000
+            Size.Height = 30.000000000000000000
+            Size.PlatformDefault = False
+            Stroke.Kind = None
+            OnClick = btnNavViewSiteOpenExternallyClick
+            OnMouseEnter = btnNavItemMouseEnter
+            OnMouseLeave = btnNavItemMouseLeave
+            object imgNavViewSiteOpenExternally: TSkSvg
+              Align = Center
+              Size.Width = 15.000000000000000000
+              Size.Height = 15.000000000000000000
+              Size.PlatformDefault = False
+              Svg.OverrideColor = xFF40474F
+              Svg.Source = 
+                '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" f' +
+                'ill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0' +
+                ' 16 16">'#13#10'  <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.' +
+                '5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 ' +
+                '0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5' +
+                ' 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>'#13#10'  ' +
+                '<path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0' +
+                ' 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0' +
+                ' 0 0 1 0v-5z"/>'#13#10'</svg>'
+            end
           end
         end
       end

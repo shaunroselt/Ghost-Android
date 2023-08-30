@@ -5,7 +5,7 @@ object Frame_SignUpSiteDetails: TFrame_SignUpSiteDetails
   object layWelcomeBack: TLayout
     Align = Center
     Size.Width = 533.000000000000000000
-    Size.Height = 461.000000000000000000
+    Size.Height = 543.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object lblWelcomeBack: TLabel
@@ -136,7 +136,7 @@ object Frame_SignUpSiteDetails: TFrame_SignUpSiteDetails
       Cursor = crHandPoint
       Fill.Color = claBlack
       Margins.Top = 25.000000000000000000
-      Position.Y = 391.714294433593800000
+      Position.Y = 489.714294433593800000
       Sides = []
       Size.Width = 533.000000000000000000
       Size.Height = 45.000000000000000000
@@ -4650,7 +4650,7 @@ object Frame_SignUpSiteDetails: TFrame_SignUpSiteDetails
       Margins.Top = 25.000000000000000000
       Position.Y = 297.714294433593800000
       Size.Width = 533.000000000000000000
-      Size.Height = 69.000015258789060000
+      Size.Height = 167.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 3
       object Label1: TLabel
@@ -4662,7 +4662,7 @@ object Frame_SignUpSiteDetails: TFrame_SignUpSiteDetails
         Size.PlatformDefault = False
         TextSettings.Font.Family = 'Open Sans'
         TextSettings.Font.Size = 14.000000000000000000
-        Text = 'Publication name'
+        Text = 'What'#39's your publication about?'
         TabOrder = 0
       end
       object Rectangle1: TRectangle
@@ -4672,27 +4672,26 @@ object Frame_SignUpSiteDetails: TFrame_SignUpSiteDetails
         Margins.Top = 5.000000000000000000
         Position.Y = 24.428571701049800000
         Size.Width = 533.000000000000000000
-        Size.Height = 45.000000000000000000
+        Size.Height = 142.000000000000000000
         Size.PlatformDefault = False
         Stroke.Color = xFFDBE3E7
         XRadius = 8.000000000000000000
         YRadius = 8.000000000000000000
-        object Edit1: TEdit
-          Touch.InteractiveGestures = [LongTap, DoubleTap]
+        object Memo1: TMemo
+          Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+          DataDetectorTypes = []
           Align = Client
-          StyleLookup = 'transparentedit'
-          TabOrder = 3
-          TextSettings.Font.Family = 'Open Sans'
-          TextSettings.Font.Size = 14.000000000000000000
           Margins.Left = 8.000000000000000000
           Margins.Top = 8.000000000000000000
           Margins.Right = 8.000000000000000000
           Margins.Bottom = 8.000000000000000000
           Size.Width = 517.000000000000000000
-          Size.Height = 29.000000000000000000
+          Size.Height = 126.000000000000000000
           Size.PlatformDefault = False
-          TextPrompt = 'Acme Publishing Inc'
-          StyledSettings = [Style, FontColor]
+          StyleLookup = 'transparentedit'
+          TabOrder = 3
+          Viewport.Width = 517.000000000000000000
+          Viewport.Height = 126.000000000000000000
         end
       end
     end

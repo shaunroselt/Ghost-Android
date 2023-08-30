@@ -4413,7 +4413,7 @@ object Frame_SignIn: TFrame_SignIn
       Text = 'Sign in to your ghost site.'
       TabOrder = 1
     end
-    object Layout8: TLayout
+    object layContainerEmailAddress: TLayout
       Align = Top
       Margins.Top = 40.000000000000000000
       Position.Y = 179.142852783203100000
@@ -4500,7 +4500,7 @@ object Frame_SignIn: TFrame_SignIn
         TabOrder = 3
       end
     end
-    object Layout7: TLayout
+    object layContainerPassword: TLayout
       Align = Top
       Margins.Top = 25.000000000000000000
       Position.Y = 273.142883300781300000

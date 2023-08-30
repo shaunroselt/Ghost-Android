@@ -8,6 +8,7 @@ uses
   System.UITypes,
   System.Classes,
   System.Variants,
+  System.Math.Vectors,
 
   FMX.Types,
   FMX.Graphics,
@@ -19,10 +20,18 @@ uses
   FMX.Objects,
   FMX.Controls.Presentation,
   FMX.Layouts,
+  FMX.Controls3D,
+  FMX.Layers3D,
+  FMX.Memo.Types,
+  FMX.ScrollBox,
+  FMX.Memo,
+
+  System.Skia,
+  FMX.Skia,
 
   uFrameInterface,
   uUtilities,
-  uAPI, System.Skia, System.Math.Vectors, FMX.Controls3D, FMX.Layers3D, FMX.Skia;
+  uDataModule_Main;
 
 type
   TFrame_SignUpSiteDetails = class(TFrame, IFrameController)
@@ -43,12 +52,12 @@ type
     Layout1: TLayout;
     Label1: TLabel;
     Rectangle1: TRectangle;
-    Edit1: TEdit;
     Layout3D1: TLayout3D;
     Layout2: TLayout;
     Layout3: TLayout;
     Rectangle2: TRectangle;
     Label2: TLabel;
+    Memo1: TMemo;
   private
     { Private declarations }
     FFrameInterface: IFrameInterface;

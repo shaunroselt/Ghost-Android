@@ -1,4 +1,4 @@
-object dmAPI: TdmAPI
+object dmMain: TdmMain
   Height = 1470
   Width = 1960
   PixelsPerInch = 168
@@ -6,7 +6,6 @@ object dmAPI: TdmAPI
     Accept = 'application/json, text/plain; q=0.9, text/html;q=0.8,'
     AcceptCharset = 'utf-8, *;q=0.8'
     BaseURL = 'http://localhost:2368'
-    ContentType = 'application/json'
     Params = <>
     SynchronizedEvents = False
     UserAgent = 'Ghost App'
@@ -4460,5 +4459,31 @@ object dmAPI: TdmAPI
     StoreDefs = True
     Left = 520
     Top = 384
+  end
+  object resAdminPosts: TRESTResponse
+    Left = 320
+    Top = 528
+  end
+  object reqAdminPosts: TRESTRequest
+    Client = RESTClientAdmin
+    Params = <>
+    Resource = 'ghost/api/admin/posts'
+    Response = resAdminPosts
+    SynchronizedEvents = False
+    Left = 104
+    Top = 528
+  end
+  object tblAdminPosts: TClientDataSet
+    Aggregates = <>
+    FieldDefs = <>
+    IndexDefs = <>
+    Params = <
+      item
+        DataType = ftUnknown
+        ParamType = ptUnknown
+      end>
+    StoreDefs = True
+    Left = 520
+    Top = 528
   end
 end

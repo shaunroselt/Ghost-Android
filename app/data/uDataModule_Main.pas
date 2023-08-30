@@ -1,4 +1,4 @@
-unit uAPI;
+unit uDataModule_Main;
 
 interface
 
@@ -54,7 +54,7 @@ type
     procedure Clear;
   end;
 
-  TdmAPI = class(TDataModule)
+  TdmMain = class(TDataModule)
     RESTClientAdmin: TRESTClient;
     reqAdminSession: TRESTRequest;
     resAdminSession: TRESTResponse;
@@ -64,6 +64,9 @@ type
     resAdminUsers: TRESTResponse;
     reqAdminUsers: TRESTRequest;
     tblAdminUsers: TClientDataSet;
+    resAdminPosts: TRESTResponse;
+    reqAdminPosts: TRESTRequest;
+    tblAdminPosts: TClientDataSet;
   private
     { Private declarations }
     AdminAPISession: String;
@@ -79,7 +82,7 @@ type
   end;
 
 var
-  dmAPI: TdmAPI;
+  dmMain: TdmMain;
 
 implementation
 
@@ -89,7 +92,7 @@ implementation
 
 { TdmAPI }
 
-function TdmAPI.RefreshAdminUsers: Boolean;
+function TdmMain.RefreshAdminUsers: Boolean;
   procedure SetupClientDataSet();
   begin
     tblAdminUsers.Active := False;
@@ -190,7 +193,7 @@ begin
   end;
 end;
 
-procedure TdmAPI.SetAdminSite(AdminURL: String);
+procedure TdmMain.SetAdminSite(AdminURL: String);
   function StringToAlphaColor(const AString: string): TAlphaColor;
   var
     myRec: TAlphaColorRec;
@@ -232,7 +235,7 @@ begin
   end;
 end;
 
-function TdmAPI.Login(username, password: String): TAdminLogin;
+function TdmMain.Login(username, password: String): TAdminLogin;
 begin
   Result.success := False;
   reqAdminSession.Params.ClearAndResetID;

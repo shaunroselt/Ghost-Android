@@ -4560,6 +4560,7 @@ object Frame_SignUpThemeSelection: TFrame_SignUpThemeSelection
           Size.Height = 440.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 2
+          OnClick = btnThemePreviewClick
           OnMouseEnter = btnThemeMouseEnter
           OnMouseLeave = btnThemeMouseLeave
           object layBottomThemeCasper: TLayout

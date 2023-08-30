@@ -24,7 +24,10 @@ uses
 
   uFrameInterface,
   uUtilities,
-  uAPI;
+  uDataModule_Main,
+
+  uDataModule_Themes,
+  uDataModule_SignUp;
 
 type
   TFrame_SignUpThemeSelection = class(TFrame, IFrameController)
@@ -253,6 +256,7 @@ type
     procedure btnThemeMouseEnter(Sender: TObject);
     procedure btnThemeMouseLeave(Sender: TObject);
     procedure btnTempWelcomeBackClick(Sender: TObject);
+    procedure btnThemePreviewClick(Sender: TObject);
   private
     { Private declarations }
     FFrameInterface: IFrameInterface;
@@ -270,7 +274,32 @@ implementation
 
 procedure TFrame_SignUpThemeSelection.btnTempWelcomeBackClick(Sender: TObject);
 begin
-    FFrameInterface.ShowFrame('WelcomeBack', False);
+  FFrameInterface.ShowFrame('WelcomeBack', False);
+end;
+
+procedure TFrame_SignUpThemeSelection.btnThemePreviewClick(Sender: TObject);
+begin
+  var ThemeName := String(TControl(Sender).Name).Replace('btnTheme','');
+  var ThemeURL := '';
+  for var I in OfficialThemes do
+  begin
+    if (I.name = ThemeName) then
+    begin
+      ThemeURL := I.url;
+      break;
+    end;
+  end;
+
+  if (ThemeURL.Length > 0) then
+  begin
+    dmSignUp.Data.ResetData;
+
+    dmSignUp.Data.Theme := GetTheme(ThemeName);
+    FFrameInterface.ShowFrame('SignUpThemePreview', False);
+  end else
+  begin
+
+  end;
 end;
 
 procedure TFrame_SignUpThemeSelection.btnThemeMouseEnter(Sender: TObject);
@@ -301,50 +330,11 @@ end;
 
 procedure TFrame_SignUpThemeSelection.FrameShow;
 begin
-  btnPreviewThemeCasper.Visible := False;
-  layPreviewTransparentThemeCasper.Visible := False;
-
-  btnPreviewThemeHeadline.Visible := False;
-  layPreviewTransparentThemeHeadline.Visible := False;
-
-  btnPreviewThemeEdition.Visible := False;
-  layPreviewTransparentThemeEdition.Visible := False;
-
-  btnPreviewThemeSolo.Visible := False;
-  layPreviewTransparentThemeSolo.Visible := False;
-
-  btnPreviewThemeTaste.Visible := False;
-  layPreviewTransparentThemeTaste.Visible := False;
-
-  btnPreviewThemeEpisode.Visible := False;
-  layPreviewTransparentThemeEpisode.Visible := False;
-
-  btnPreviewThemeDigest.Visible := False;
-  layPreviewTransparentThemeDigest.Visible := False;
-
-  btnPreviewThemeBulletin.Visible := False;
-  layPreviewTransparentThemeBulletin.Visible := False;
-
-  btnPreviewThemeAlto.Visible := False;
-  layPreviewTransparentThemeAlto.Visible := False;
-
-  btnPreviewThemeDope.Visible := False;
-  layPreviewTransparentThemeDope.Visible := False;
-
-  btnPreviewThemeWave.Visible := False;
-  layPreviewTransparentThemeWave.Visible := False;
-
-  btnPreviewThemeEdge.Visible := False;
-  layPreviewTransparentThemeEdge.Visible := False;
-
-  btnPreviewThemeDawn.Visible := False;
-  layPreviewTransparentThemeDawn.Visible := False;
-
-  btnPreviewThemeEase.Visible := False;
-  layPreviewTransparentThemeEase.Visible := False;
-
-  btnPreviewThemeJournal.Visible := False;
-  layPreviewTransparentThemeJournal.Visible := False;
+  for var I in OfficialThemes do
+  begin
+    TControl(FindComponent('btnPreviewTheme'+I.name)).Visible := False;
+    TControl(FindComponent('layPreviewTransparentTheme'+I.name)).Visible := False;
+  end;
 end;
 
 procedure TFrame_SignUpThemeSelection.SetFrameInterface(const aFrameInterface: IFrameInterface);

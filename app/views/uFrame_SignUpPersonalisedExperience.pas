@@ -22,10 +22,25 @@ uses
 
   uFrameInterface,
   uUtilities,
-  uAPI;
+  uAPI, System.Skia, FMX.Memo.Types, System.Math.Vectors, FMX.Controls3D, FMX.Layers3D,
+  FMX.ScrollBox, FMX.Memo, FMX.Skia;
 
 type
   TFrame_SignUpPersonalisedExperience = class(TFrame, IFrameController)
+    layWelcomeBack: TLayout;
+    lblWelcomeBack: TLabel;
+    lblContinueToYourSite: TLabel;
+    btnContinue: TRectangle;
+    lblButtonContinue: TLabel;
+    layLogo: TLayout;
+    layLogoGhost: TLayout;
+    imgLogoGhost: TImage;
+    lblLogoGhost: TLabel;
+    imgLogoGhostPro: TSkSvg;
+    Layout1: TLayout;
+    Layout3D1: TLayout3D;
+    Label5: TLabel;
+    btnGetStartedHere: TLabel;
   private
     { Private declarations }
     FFrameInterface: IFrameInterface;

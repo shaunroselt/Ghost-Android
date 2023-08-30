@@ -1,0 +1,5 @@
+object Frame_Pages: TFrame_Pages
+  Size.Width = 1012.000000000000000000
+  Size.Height = 684.000000000000000000
+  Size.PlatformDefault = False
+end

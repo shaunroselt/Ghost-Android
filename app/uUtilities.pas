@@ -3,6 +3,23 @@ unit uUtilities;
 interface
 
 uses
+  {$IFDEF MSWINDOWS}
+    Winapi.ShellAPI,
+    Winapi.Windows,
+  {$ENDIF}
+  {$IFDEF ANDROID}
+    Androidapi.JNI.GraphicsContentViewText,
+    Androidapi.helpers,
+  {$ENDIF}
+  {$IFDEF MACOS}
+    Posix.Stdlib,
+  {$ENDIF}
+  {$IFDEF IOS}
+    macapi.helpers,
+    iOSapi.Foundation,
+    FMX.helpers.iOS,
+  {$ENDIF}
+
   System.Classes,
   System.SysUtils,
   System.UITypes,
@@ -19,6 +36,8 @@ function DownloadImageFromURL(URL: string): TBitmap;
 
 function IncreaseOpacity(Color: TAlphaColor; Percentage: Single): TAlphaColor;
 function AlphaColorToString(const AColor: TAlphaColor): string;
+
+procedure OpenURL(URL: string);
 
 implementation
 
@@ -57,6 +76,25 @@ begin
             IntToHex(TAlphaColorRec(AColor).R, 2) +
             IntToHex(TAlphaColorRec(AColor).G, 2) +
             IntToHex(TAlphaColorRec(AColor).B, 2);
+end;
+
+procedure OpenURL(URL: string);
+begin
+  {$IFDEF MSWINDOWS}
+    ShellExecute(0, 'OPEN', PWideChar(URL), nil, nil, SW_SHOWNORMAL);
+  {$ENDIF}
+  {$IFDEF ANDROID}
+    var Intent := TJIntent.Create;
+    Intent.setAction(TJIntent.JavaClass.ACTION_VIEW);
+    Intent.setData(StrToJURI(URL));
+    tandroidhelper.Activity.startActivity(Intent);
+  {$ENDIF}
+  {$IFDEF MACOS}
+    _system(PAnsiChar('open ' + AnsiString(URL)));
+  {$ENDIF}
+  {$IFDEF IOS}
+    SharedApplication.OpenURL(StrToNSUrl(URL));
+  {$ENDIF}
 end;
 
 end.

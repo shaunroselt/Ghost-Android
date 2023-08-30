@@ -1,0 +1,5 @@
+object Frame_Posts: TFrame_Posts
+  Size.Width = 868.000000000000000000
+  Size.Height = 576.000000000000000000
+  Size.PlatformDefault = False
+end

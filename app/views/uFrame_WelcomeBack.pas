@@ -22,7 +22,7 @@ uses
 
   uFrameInterface,
   uUtilities,
-  uAPI;
+  uDataModule_Main;
 
 type
   TFrame_WelcomeBack = class(TFrame, IFrameController)
@@ -62,17 +62,17 @@ implementation
 
 procedure TFrame_WelcomeBack.btnContinueClick(Sender: TObject);
 begin
-  dmAPI.SetAdminSite(edtSiteAddress.Text);
+  dmMain.SetAdminSite(edtSiteAddress.Text);
   FFrameInterface.ShowFrame('SignIn', False);
 
   FFrameInterface.LogInfo('================================================');
-  FFrameInterface.LogInfo(dmAPI.AdminSite.title);
-  FFrameInterface.LogInfo(dmAPI.AdminSite.description);
-  FFrameInterface.LogInfo(dmAPI.AdminSite.logo_url);
-  FFrameInterface.LogInfo(AlphaColorToString(dmAPI.AdminSite.accent_color));
-  FFrameInterface.LogInfo(dmAPI.AdminSite.locale);
-  FFrameInterface.LogInfo(dmAPI.AdminSite.url);
-  FFrameInterface.LogInfo(dmAPI.AdminSite.version);
+  FFrameInterface.LogInfo(dmMain.AdminSite.title);
+  FFrameInterface.LogInfo(dmMain.AdminSite.description);
+  FFrameInterface.LogInfo(dmMain.AdminSite.logo_url);
+  FFrameInterface.LogInfo(AlphaColorToString(dmMain.AdminSite.accent_color));
+  FFrameInterface.LogInfo(dmMain.AdminSite.locale);
+  FFrameInterface.LogInfo(dmMain.AdminSite.url);
+  FFrameInterface.LogInfo(dmMain.AdminSite.version);
 end;
 
 procedure TFrame_WelcomeBack.btnGetStartedHereClick(Sender: TObject);

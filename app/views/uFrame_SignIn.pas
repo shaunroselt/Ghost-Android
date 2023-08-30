@@ -22,7 +22,7 @@ uses
 
   uFrameInterface,
   uUtilities,
-  uAPI;
+  uDataModule_Main;
 
 type
   TFrame_SignIn = class(TFrame, IFrameController)
@@ -30,13 +30,13 @@ type
     layLogo: TLayout;
     imgLogoSignIn: TImage;
     lblTitleSignIn: TLabel;
-    Layout8: TLayout;
+    layContainerEmailAddress: TLayout;
     lblEmailAddress: TLabel;
     layEmailAddress: TRectangle;
     edtEmailAddress: TEdit;
     btnSignIn: TRectangle;
     lblButtonSignIn: TLabel;
-    Layout7: TLayout;
+    layContainerPassword: TLayout;
     lblPassword: TLabel;
     layPassword: TRectangle;
     edtPassword: TEdit;
@@ -79,7 +79,7 @@ begin
   begin
     layEmailAddress.Stroke.Color := $FFDBE3E7;
     lblError.Visible := False;
-    var LoginRecord := dmAPI.Login(edtEmailAddress.Text, edtPassword.Text);
+    var LoginRecord := dmMain.Login(edtEmailAddress.Text, edtPassword.Text);
     if (LoginRecord.success) then
     begin
 
@@ -108,7 +108,7 @@ end;
 
 procedure TFrame_SignIn.btnSignInClick(Sender: TObject);
 begin
-  var LoginRecord := dmAPI.Login(edtEmailAddress.Text, edtPassword.Text);
+  var LoginRecord := dmMain.Login(edtEmailAddress.Text, edtPassword.Text);
   FFrameInterface.LogInfo('================================================');
   if (LoginRecord.success) then
   begin
@@ -126,15 +126,15 @@ end;
 
 procedure TFrame_SignIn.btnSignInMouseEnter(Sender: TObject);
 begin
-  var btnFillColor := IncreaseOpacity(dmAPI.AdminSite.accent_color, 9);
+  var btnFillColor := IncreaseOpacity(dmMain.AdminSite.accent_color, 9);
   btnSignIn.Fill.Color := btnFillColor;
   btnSignIn.Stroke.Color := btnFillColor;
 end;
 
 procedure TFrame_SignIn.btnSignInMouseLeave(Sender: TObject);
 begin
-  btnSignIn.Fill.Color := dmAPI.AdminSite.accent_color;
-  btnSignIn.Stroke.Color := dmAPI.AdminSite.accent_color;
+  btnSignIn.Fill.Color := dmMain.AdminSite.accent_color;
+  btnSignIn.Stroke.Color := dmMain.AdminSite.accent_color;
 end;
 
 procedure TFrame_SignIn.btnTempWelcomeBackClick(Sender: TObject);
@@ -165,10 +165,10 @@ begin
     edtPassword.Text := '';
   {$ENDIF}
 
-  imgLogoSignIn.Bitmap := dmAPI.AdminSite.logo;
-  lblTitleSignIn.Text := 'Sign in to ' + dmAPI.AdminSite.title + '.';
-  btnSignIn.Fill.Color := dmAPI.AdminSite.accent_color;
-  btnSignIn.Stroke.Color := dmAPI.AdminSite.accent_color;
+  imgLogoSignIn.Bitmap := dmMain.AdminSite.logo;
+  lblTitleSignIn.Text := 'Sign in to ' + dmMain.AdminSite.title + '.';
+  btnSignIn.Fill.Color := dmMain.AdminSite.accent_color;
+  btnSignIn.Stroke.Color := dmMain.AdminSite.accent_color;
 end;
 
 procedure TFrame_SignIn.SetFrameInterface(const aFrameInterface: IFrameInterface);

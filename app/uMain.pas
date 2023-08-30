@@ -26,12 +26,14 @@ uses
   FMX.Memo,
   FMX.MultiView,
   FMX.ListBox,
+  FMX.WebBrowser,
 
   System.Skia,
   FMX.Skia,
 
   uFrameInterface,
-  uAPI,
+  uUtilities,
+  uDataModule_Main,
   uGhostIcons,
 
   uFrame_WelcomeBack,
@@ -160,6 +162,10 @@ type
     imgNavPostsExpandCollapse: TSkSvg;
     Button1: TButton;
     GridLayout1: TGridLayout;
+    btnNavViewSiteOpenExternally: TRoundRect;
+    imgNavViewSiteOpenExternally: TSkSvg;
+    layViewSite: TWebBrowser;
+    Button2: TButton;
     procedure btnNavItemMouseEnter(Sender: TObject);
     procedure btnNavItemMouseLeave(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -175,6 +181,7 @@ type
     procedure btnNavItemExpandCollapse(Sender: TObject);
     procedure btnNavSettingsClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure btnNavViewSiteOpenExternallyClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -221,6 +228,7 @@ procedure TfrmMain.UpdateMainForm;
 begin
   imgNavLogo.Bitmap := dmAPI.AdminSite.logo;
   lblNavLogoTitle.Text := dmAPI.AdminSite.title;
+  layViewSite.URL := 'http://localhost:2368/';
 end;
 
 procedure TfrmMain.btnNavDashboardsClick(Sender: TObject);
@@ -237,11 +245,17 @@ procedure TfrmMain.btnNavItemMouseEnter(Sender: TObject);
 begin
   TShape(Sender).Fill.Kind := TBrushKind.Solid;
   TShape(Sender).Fill.Color := $FFF3F4F6;
+
+  if (String(TShape(Sender).Name).Contains('ViewSite')) then
+    btnNavViewSiteOpenExternally.Visible := True;
 end;
 
 procedure TfrmMain.btnNavItemMouseLeave(Sender: TObject);
 begin
   TShape(Sender).Fill.Kind := TBrushKind.None;
+
+  if (String(TShape(Sender).Name).Contains('ViewSite')) then
+    btnNavViewSiteOpenExternally.Visible := False;
 end;
 
 procedure TfrmMain.btnNavMembersClick(Sender: TObject);
@@ -277,6 +291,11 @@ end;
 procedure TfrmMain.btnNavViewSiteClick(Sender: TObject);
 begin
   ShowFrame('ViewSite', True);
+end;
+
+procedure TfrmMain.btnNavViewSiteOpenExternallyClick(Sender: TObject);
+begin
+  OpenURL('https://ghost.org');
 end;
 
 procedure TfrmMain.Button1Click(Sender: TObject);
