@@ -1,0 +1,118 @@
+repo_name: shaunroselt/Ghost-App
+report_id: 90129bbd44403cecd7514d318aa60e3e
+repo_type: Public
+timestamp: '2023-11-09T13:32:54+00:00'
+requested_by: shaunroselt
+provider: github
+branch: main
+detected_tools_count: 9
+tools:
+- name: CSS 3
+  description: The latest evolution of the Cascading Style Sheets language
+  website_url: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/6727/css.png
+  detection_source: Repo Metadata
+- name: JavaScript
+  description: Lightweight, interpreted, object-oriented language with first-class
+    functions
+  website_url: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source: Repo Metadata
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source: Repo Metadata
+- name: Webpack
+  description: A bundler for javascript and friends
+  website_url: http://webpack.js.org
+  version: 3.3.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: JS Build Tools / JS Task Runners
+  image_url: https://img.stackshare.io/service/1682/IMG_4636.PNG
+  detection_source_url: markdown/yarn.lock
+  detection_source: markdown/webpack.config.js
+  last_updated_by: Vicky Chijwani
+  last_updated_on: 2017-07-15 23:02:58.000000000 Z
+- name: Yarn
+  description: A new package manager for JavaScript
+  website_url: https://yarnpkg.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Front End Package Manager
+  image_url: https://img.stackshare.io/service/5848/44mC-kJ3.jpg
+  detection_source: markdown/yarn.lock
+  last_updated_by: Vicky Chijwani
+  last_updated_on: 2017-07-15 23:02:58.000000000 Z
+- name: npm
+  description: The package manager for JavaScript.
+  website_url: https://www.npmjs.com/
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Front End Package Manager
+  image_url: https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png
+  detection_source: tests/api/package.json
+  last_updated_by: Vicky Chijwani
+  last_updated_on: 2015-06-30 23:33:44.000000000 Z
+- name: Shell
+  description: A shell is a text-based terminal, used for manipulating programs and
+    files. Shell scripts typically manage program execution.
+  website_url: https://en.wikipedia.org/wiki/Shell_script
+  open_source: false
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/4631/default_c2062d40130562bdc836c13dbca02d318205a962.png
+  detection_source: Repo Metadata
+- name: lodash-node
+  description: Lodash module bundles for Node.js
+  package_url: https://www.npmjs.com/lodash-node
+  version: 3.10.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/18038/default_1f8ed84269df051b7e91bcbcb5c88ac6f0d8720d.png
+  detection_source_url: tests/api/package.json
+  detection_source: tests/api/package.json
+  last_updated_by: Vicky Chijwani
+  last_updated_on: 2015-08-30 17:46:51.000000000 Z
+- name: markdown-it
+  description: Markdown-it - modern pluggable markdown parser
+  package_url: https://www.npmjs.com/markdown-it
+  version: 8.4.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16277/default_ab17554b7e80af3d234b14168ed61e75d43f8eee.png
+  detection_source_url: markdown/yarn.lock
+  detection_source: markdown/package.json
+  last_updated_by: Vicky Chijwani
+  last_updated_on: 2018-08-14 19:56:08.000000000 Z
+  vulnerabilities:
+  - name: Uncontrolled Resource Consumption in markdown-it
+    cve_id: CVE-2022-21670
+    cve_url: https://github.com/advisories/GHSA-6vfc-qv3f-vr6c
+    detected_date: Jan 13
+    severity: moderate
+    first_patched: 12.3.2
