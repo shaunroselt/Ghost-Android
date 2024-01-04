@@ -1,7 +1,8 @@
 repo_name: shaunroselt/Ghost-App
 report_id: a9f2185b612287b5bf73575104f9bc55
+version: 0.1
 repo_type: Public
-timestamp: '2023-11-21T09:36:21+00:00'
+timestamp: '2024-01-04T14:54:19+00:00'
 requested_by: shaunroselt
 provider: github
 branch: main
@@ -15,6 +16,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/6727/css.png
+  detection_source_url: https://github.com/shaunroselt/Ghost-App
   detection_source: Repo Metadata
 - name: JavaScript
   description: Lightweight, interpreted, object-oriented language with first-class
@@ -25,6 +27,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source_url: https://github.com/shaunroselt/Ghost-App
   detection_source: Repo Metadata
 - name: Pascal
   description: An imperative and procedural programming language
@@ -34,6 +37,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/25462/default_b93b3ffaf8650f0584d7b2e14dd145f599722cae.png
+  detection_source_url: https://github.com/shaunroselt/Ghost-App
   detection_source: Repo Metadata
 - name: Git
   description: Fast, scalable, distributed revision control system
@@ -43,6 +47,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/shaunroselt/Ghost-App
   detection_source: Repo Metadata
 - name: Webpack
   description: A bundler for javascript and friends
@@ -54,8 +59,8 @@ tools:
   category: Build, Test, Deploy
   sub_category: JS Build Tools / JS Task Runners
   image_url: https://img.stackshare.io/service/1682/IMG_4636.PNG
-  detection_source_url: markdown/yarn.lock
-  detection_source: markdown/webpack.config.js
+  detection_source_url: https://github.com/shaunroselt/Ghost-App/blob/main/markdown/yarn.lock
+  detection_source: markdown/package.json
   last_updated_by: Vicky Chijwani
   last_updated_on: 2017-07-15 23:02:58.000000000 Z
 - name: Yarn
@@ -66,6 +71,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Front End Package Manager
   image_url: https://img.stackshare.io/service/5848/44mC-kJ3.jpg
+  detection_source_url: https://github.com/shaunroselt/Ghost-App/blob/main/markdown/yarn.lock
   detection_source: markdown/yarn.lock
   last_updated_by: Vicky Chijwani
   last_updated_on: 2017-07-15 23:02:58.000000000 Z
@@ -77,6 +83,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Front End Package Manager
   image_url: https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png
+  detection_source_url: https://github.com/shaunroselt/Ghost-App/blob/main/tests/api/package.json
   detection_source: tests/api/package.json
   last_updated_by: Vicky Chijwani
   last_updated_on: 2015-06-30 23:33:44.000000000 Z
@@ -86,6 +93,7 @@ tools:
   open_source: false
   hosted_saas: false
   image_url: https://img.stackshare.io/service/2270/no-img-open-source.png
+  detection_source_url: https://github.com/shaunroselt/Ghost-App/blob/main/app/assets/post-preview.html
   detection_source: app/assets/post-preview.html
   last_updated_by: Vicky Chijwani
   last_updated_on: 2016-05-07 22:38:11.000000000 Z
@@ -98,6 +106,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/4631/default_c2062d40130562bdc836c13dbca02d318205a962.png
+  detection_source_url: https://github.com/shaunroselt/Ghost-App
   detection_source: Repo Metadata
 - name: lodash-node
   description: Lodash module bundles for Node.js
@@ -109,7 +118,7 @@ tools:
   category: Libraries
   sub_category: npm Packages
   image_url: https://img.stackshare.io/package/18038/default_1f8ed84269df051b7e91bcbcb5c88ac6f0d8720d.png
-  detection_source_url: tests/api/package.json
+  detection_source_url: https://github.com/shaunroselt/Ghost-App/blob/main/tests/api/package.json
   detection_source: tests/api/package.json
   last_updated_by: Vicky Chijwani
   last_updated_on: 2015-08-30 17:46:51.000000000 Z
@@ -123,7 +132,7 @@ tools:
   category: Libraries
   sub_category: npm Packages
   image_url: https://img.stackshare.io/package/16277/default_ab17554b7e80af3d234b14168ed61e75d43f8eee.png
-  detection_source_url: markdown/yarn.lock
+  detection_source_url: https://github.com/shaunroselt/Ghost-App/blob/main/markdown/yarn.lock
   detection_source: markdown/package.json
   last_updated_by: Vicky Chijwani
   last_updated_on: 2018-08-14 19:56:08.000000000 Z
