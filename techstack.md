@@ -4,10 +4,10 @@
 shaunroselt/Ghost-App is built on the following main stack:
 
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) – Languages
-- [Webpack](http://webpack.js.org) – JS Build Tools / JS Task Runners
-- [Shell](https://en.wikipedia.org/wiki/Shell_script) – Shells
-- [Yarn](https://yarnpkg.com/) – Front End Package Manager
 - [Pascal](https://en.wikipedia.org/wiki/Pascal_(programming_language)) – Languages
+- [Webpack](http://webpack.js.org) – JS Build Tools / JS Task Runners
+- [Yarn](https://yarnpkg.com/) – Front End Package Manager
+- [Shell](https://en.wikipedia.org/wiki/Shell_script) – Shells
 
 Full tech stack [here](/techstack.md)
 
@@ -18,10 +18,10 @@ Full tech stack [here](/techstack.md)
 shaunroselt/Ghost-App is built on the following main stack:
 
 - <img width='25' height='25' src='https://img.stackshare.io/service/1209/javascript.jpeg' alt='JavaScript'/> [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) – Languages
-- <img width='25' height='25' src='https://img.stackshare.io/service/1682/IMG_4636.PNG' alt='Webpack'/> [Webpack](http://webpack.js.org) – JS Build Tools / JS Task Runners
-- <img width='25' height='25' src='https://img.stackshare.io/service/4631/default_c2062d40130562bdc836c13dbca02d318205a962.png' alt='Shell'/> [Shell](https://en.wikipedia.org/wiki/Shell_script) – Shells
-- <img width='25' height='25' src='https://img.stackshare.io/service/5848/44mC-kJ3.jpg' alt='Yarn'/> [Yarn](https://yarnpkg.com/) – Front End Package Manager
 - <img width='25' height='25' src='https://img.stackshare.io/service/25462/default_b93b3ffaf8650f0584d7b2e14dd145f599722cae.png' alt='Pascal'/> [Pascal](https://en.wikipedia.org/wiki/Pascal_(programming_language)) – Languages
+- <img width='25' height='25' src='https://img.stackshare.io/service/1682/IMG_4636.PNG' alt='Webpack'/> [Webpack](http://webpack.js.org) – JS Build Tools / JS Task Runners
+- <img width='25' height='25' src='https://img.stackshare.io/service/5848/44mC-kJ3.jpg' alt='Yarn'/> [Yarn](https://yarnpkg.com/) – Front End Package Manager
+- <img width='25' height='25' src='https://img.stackshare.io/service/4631/default_c2062d40130562bdc836c13dbca02d318205a962.png' alt='Shell'/> [Shell](https://en.wikipedia.org/wiki/Shell_script) – Shells
 
 Full tech stack [here](/techstack.md)
 
@@ -32,7 +32,7 @@ Full tech stack [here](/techstack.md)
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [shaunroselt/Ghost-App](https://github.com/shaunroselt/Ghost-App)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|11<br/>Tools used|01/05/24 <br/>Report generated|
+|11<br/>Tools used|02/29/24 <br/>Report generated|
 |------|------|
 </div>
 
